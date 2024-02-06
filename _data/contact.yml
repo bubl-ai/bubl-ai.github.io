@@ -22,6 +22,11 @@
 - type: linkedin
   icon: 'fab fa-linkedin'   # icons powered by <https://fontawesome.com/>
   url:  'https://www.linkedin.com/in/santiago-olivar'                  # Fill with your Linkedin homepage
+
+- type: huggingface
+  icon: "fa-regular fa-face-grin-beam"
+  url: https://huggingface.co/bubl-ai
+
 #
 # - type: stack-overflow
 #   icon: 'fab fa-stack-overflow'

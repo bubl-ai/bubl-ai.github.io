@@ -22,13 +22,13 @@ I recently got my hands on the shiny new RPi 5 and thought, "Why not turn this s
 
 ## Connect to your RPi using SSH or VNC
 
-### Make Your RPi Discoverable
+### Make Your RPi Discoverable[^footnote]
 + Head to RPi Configuration > Interfaces
 + Turn on the switches for ssh and vnc
 
 
 ### Setup RealVNC in RPi
-If your RPi is headless (doesn't have a physical montitor), this will allow you to connect from another device.
+If your RPi is headless (doesn't have a physical montitor), this will allow you to connect from another device.[^fn-nth-2], [^fn-nth-3]
 ```bash
 sudo apt install realvnc-vnc-server
 ```
@@ -52,7 +52,7 @@ curl -fsSL https://get.docker.com -o get-docker.sh
 sudo sh get-docker.sh
 sudo usermod -aG docker [user_name]
 ```
-After executing this, make sure to reboot your RPi to make sure the installation is complete. You can test docker by executing the next commands.
+After executing this, make sure to reboot your RPi to make sure the installation is complete. You can test docker by executing the next commands.[^fn-nth-4]
 
 ```bash
 docker version
@@ -76,7 +76,7 @@ Relevant Extensions to install:
 + Copy your key by printing it in the terminal, `cat ~/.ssh/id_ed25519.pub`
 + Sign in to your github account and go to Settings > Access > SSH and GPG > New SSH key. Paste the content of your key there.
 + Test your connection, `ssh -T git@github.com`
-+ Now you can clone your repo, `git clone git@github.com:[username]/[repo_name]
++ Now you can clone your repo, `git clone git@github.com:[username]/[repo_name][^fn-nth-5]
 
 ## Install Jekyll to develop a blog
 + Install all requirements, `sudo apt-get install ruby-full build-essential`
@@ -92,4 +92,12 @@ source ~/.bashrc
     * Ruby version 2.5.0 or higher, `ruby -v`
     * RubyGems, `gem -v`
     * GCC and Make, `gcc -v`, `g++ -v`, and `make -v`
-+ Install dependencies, go to your website root folder and run, `bundle`
++ Install dependencies, go to your website root folder and run, `bundle`.[^fn-nth-6]
+
+## References
+[^footnote]: https://www.raspberrypi.com/documentation/computers/remote-access.html
+[^fn-nth-2]: https://stackoverflow.com/questions/66875411/
+[^fn-nth-3]: https://help.realvnc.com/hc/en-us/articles/360002249917-VNC-Connect-and-Raspberry-Pi#transferring-files-to-and-from-your-raspberry-pi-0-6
+[^fn-nth-4]: https://www.simplilearn.com/tutorials/docker-tutorial/raspberry-pi-docker
+[^fn-nth-5]: https://docs.github.com/en/authentication/connecting-to-github-with-ssh/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent
+[^fn-nth-6]: https://youtu.be/F8iOU1ci19Q?feature=shared

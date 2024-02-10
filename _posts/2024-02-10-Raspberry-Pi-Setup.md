@@ -75,6 +75,7 @@ Relevant Extensions to install:
 + Add your key to the agent, `ssh-add ~/.ssh/id_ed25519`
 + Copy your key by printing it in the terminal, `cat ~/.ssh/id_ed25519.pub`
 + Sign in to your github account and go to Settings > Access > SSH and GPG > New SSH key. Paste the content of your key there.
++ Test your connection, `ssh -T git@github.com`
 + Now you can clone your repo, `git clone git@github.com:[username]/[repo_name]
 
 ## Install Jekyll to develop a blog

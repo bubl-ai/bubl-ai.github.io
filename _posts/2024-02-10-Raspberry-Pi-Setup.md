@@ -4,7 +4,7 @@ date: 2024-02-9 12:00:00 -0
 categories: [Raspberry Pi, Setup]
 ---
 
-# Let's Kick Off the Raspberry Pi Adventure! :boom
+# Let's Kick Off the Raspberry Pi Adventure!
 
 ## Why Start from Scratch?
 Starting from scratch is like starting a video game on easy mode – it's the best way to learn, have some fun, and maybe break a few things along the way - because let's be real, that's where the real learning happens!

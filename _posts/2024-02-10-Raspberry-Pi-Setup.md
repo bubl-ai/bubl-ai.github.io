@@ -92,7 +92,8 @@ source ~/.bashrc
     * Ruby version 2.5.0 or higher, `ruby -v`
     * RubyGems, `gem -v`
     * GCC and Make, `gcc -v`, `g++ -v`, and `make -v`
-+ Install dependencies, go to your website root folder and run, `bundle`.[^fn-nth-6]
++ Install dependencies, go to your website root folder and run, `bundle`.
++ Test your website locally, `bundle exec jekyll s`[^fn-nth-6]
 
 ## References
 [^footnote]: https://www.raspberrypi.com/documentation/computers/remote-access.html

@@ -1,16 +1,20 @@
 ---
-title: RPi Setup
-date: 2024-02-01 12:00:00 -0
+title: Raspberry Pi Setup
+date: 2024-02-9 12:00:00 -0
 categories: [Raspberry Pi, Setup]
 ---
 
-It is always a good idea to start from scratch to understand how everything works, get familiar with all the services, solve dependencies, and specially to have some fun breaking stuff and keep learning!
+# Let's Kick Off the Raspberry Pi Adventure! :boom
 
-Raspberry Pi (RPi) is perfect for this. I recently got the most RPi 5 and decided to use this experience to share with all of you the setup that I needed to complete for me to start developing and creating my own AI projects.
+## Why Start from Scratch?
+Starting from scratch is like starting a video game on easy mode – it's the best way to learn, have some fun, and maybe break a few things along the way - because let's be real, that's where the real learning happens!
 
-What we will do:
+I recently got my hands on the shiny new RPi 5 and thought, "Why not turn this setup into a fun experience to share with all of you?" So here we are, diving into the setup needed to kickstart your AI projects on the Raspberry Pi.
+
+## What's on Our To-Do List:
+
 - Connect to your RPi using SSH or VNC
-- Install docker
+- Install Docker
 - Install VSCode and relevant extensions
 - Connect to GitHub with SSH
 - Install Jekyll to develop a blog
@@ -18,9 +22,10 @@ What we will do:
 
 ## Connect to your RPi using SSH or VNC
 
-### Allow RPi to be discoverable
-+ Go to RPi Configuration > Interfaces
-+ Turn on ssh and vnc
+### Make Your RPi Discoverable
++ Head to RPi Configuration > Interfaces
++ Turn on the switches for ssh and vnc
+
 
 ### Setup RealVNC in RPi
 If your RPi is headless (doesn't have a physical montitor), this will allow you to connect from another device.
@@ -28,7 +33,7 @@ If your RPi is headless (doesn't have a physical montitor), this will allow you 
 sudo apt install realvnc-vnc-server
 ```
 
-Once intalled just expose an IP address that you will be using to connect to it
+Once intalled just expose an IP address that you will be using to connect to it.
 ```bash
 vncserver-virtual
 ```

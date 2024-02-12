@@ -11,22 +11,22 @@ Starting from scratch is like starting a video game on easy mode – it's the be
 
 I recently got my hands on the shiny new RPi 5 and thought, "Why not turn this setup into a fun experience to share with all of you?" So here we are, diving into the setup needed to kickstart your AI projects on the Raspberry Pi.
 
-## What's on Our To-Do List:
+## What you will learn here:
 
-- Connect to your RPi using SSH or VNC
-- Install Docker
-- Install VSCode and relevant extensions
-- Connect to GitHub with SSH
+1. Connect to your RPi using SSH or VNC
+2. Install Docker
+3. Install VSCode and relevant extensions
+4. Connect to GitHub with SSH
 
 
-## Connect to your RPi using SSH or VNC
+## 1. Connect to your RPi using SSH or VNC
 
 ### Make Your RPi Discoverable[^footnote]
 + Head to RPi Configuration > Interfaces
 + Turn on the switches for ssh and vnc
 
 
-### Setup RealVNC in RPi
+### 1.1. Setup RealVNC in RPi
 If your RPi is headless (doesn't have a physical montitor), this will allow you to connect from another device.[^fn-nth-2], [^fn-nth-3]
 ```bash
 sudo apt install realvnc-vnc-server
@@ -37,7 +37,7 @@ Once intalled just expose an IP address that you will be using to connect to it.
 vncserver-virtual
 ```
 
-### Setup your other device used to connect to RPi
+### 1.2. Setup your other device used to connect to RPi
 I am using an iPad for this, but the next steps shouldn't be very different for other devices.
 
 + You can use IP Scanner app to scan your local network devices. If you are connected to the same Network as your RPi, the IP number appears there.
@@ -45,7 +45,7 @@ I am using an iPad for this, but the next steps shouldn't be very different for 
 + If you want remote acces to your desktop you have to make sure to first run `vncserver-virtual` on your RPI and this will give you an IP number. Use this to set a new connection within the RVNC Viewer in you iPad.
 
 
-## Install docker
+## 2. Install docker
 ```bash
 curl -fsSL https://get.docker.com -o get-docker.sh
 sudo sh get-docker.sh
@@ -59,7 +59,7 @@ docker info
 docker run hello-world
 ```
 
-## Install VSCode and relevant extensions
+## 3. Install VSCode and relevant extensions
 ```bash
 sudo apt install code
 ```
@@ -68,7 +68,7 @@ Relevant Extensions to install:
 + Docker
 + Dev Containers
 
-## Connect to GitHub with SSH
+## 4. Connect to GitHub with SSH
 + Generate new ssh key, `ssh-keygen -t ed25519 -C "[your_email@domain.com]"`
 + Start the agent in the background, `eval "$(ssh-agent -s)"`
 + Add your key to the agent, `ssh-add ~/.ssh/id_ed25519`

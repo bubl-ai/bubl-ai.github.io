@@ -1,7 +1,7 @@
 ---
-title: Raspberry Pi Setup
-date: 2024-02-9 12:00:00 -0
-categories: [Raspberry Pi, Setup]
+title: Simple Dockerfie for Dev Purposes
+date: 2024-02-12 12:00:00 -0
+categories: [Repo, Setup]
 ---
 # Docker in Machine Learning
 

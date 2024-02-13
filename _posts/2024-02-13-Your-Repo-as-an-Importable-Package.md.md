@@ -4,7 +4,7 @@ date: 2024-02-13 12:00:00 -0
 categories: [Repo, Setup]
 ---
 
-If you've been following our previous post on creating a Docker image for development purposes, you likely spotted the pip install -e command in the Dockerfile. So, what's the deal with this command, and why is it a game-changer for our project?
+If you've been following our previous post on creating a Docker image for development purposes, you likely spotted the `pip install -e` command in the Dockerfile. So, what's the deal with this command, and why is it a game-changer for our project?
 
 The pip install -e command is your ticket to installing a Python package in "editable" mode. Instead of the typical method of copying the package's files to the site-packages directory, pip takes a different route – it either creates a symbolic link or adds the project directly to the Python path. In simpler words, this means you can tweak the source code of the package, and voila! Your changes take effect immediately in the installed package, no reinstallation needed.
 

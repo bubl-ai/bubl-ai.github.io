@@ -37,7 +37,7 @@ RUN conda create --name myenv python=3.11 && \
 RUN conda install -n myenv numpy
 
 # SSH for GitHub authentication
-# keyscan is used to avoid manually veryfying Github hosts
+# keyscan is used to avoid manually veryfying GitHub hosts
 RUN mkdir -p /root/.ssh && \
     ssh-keyscan github.com >> /root/.ssh/known_hosts
 
@@ -55,7 +55,7 @@ CMD ["/bin/bash"]
 ```
 
 You can use it in VSCode to seamlessly develop your code within the container.
-This is assuming that you already have Docker and VSCode installed,and that you set your Github ssh key in `~/.ssh/id_ed25519`. If you don't have this, feel free to check [this previous blog post!](https://bubl-ai.com/posts/Raspberry-Pi-Setup/)
+This is assuming that you already have Docker and VSCode installed,and that you set your GitHub ssh key in `~/.ssh/id_ed25519`. If you don't have this, feel free to check [this previous blog post!](https://bubl-ai.com/posts/Raspberry-Pi-Setup/)
 
 The only thing missing is to build your image and run your container. This is done very easily by executing the next commands.
 ```bash

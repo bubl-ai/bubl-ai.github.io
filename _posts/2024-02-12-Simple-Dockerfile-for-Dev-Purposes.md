@@ -17,7 +17,7 @@ Here's a straightforward Dockerfile template that suits various Machine Learning
 - Enables seamless GitHub authentication for source control within the container.
 - Uses "pip install -e ." to install the current directory as a package, allowing users to treat their utilities within the container like any other library.
 
-The next Dockerfile was gotten from our [*llamaindex-project repository.*](https://github.com/bubl-ai/llamaindex-project/blob/main/docker/Dockerfile)
+The next Dockerfile was gotten from our [*llamaindex-learning repository.*](https://github.com/bubl-ai/llamaindex-learning/blob/main/docker/Dockerfile)
 
 ```
 # Use an official base image with Python and Conda
@@ -41,11 +41,11 @@ RUN conda install -n myenv numpy
 RUN mkdir -p /root/.ssh && \
     ssh-keyscan github.com >> /root/.ssh/known_hosts
 
-# Copy the current directory contents into the container at /llamaindex-project
-COPY . /llamaindex-project
+# Copy the current directory contents into the container at /llamaindex-learning
+COPY . /llamaindex-learning
 
 # Set the working directory inside the container
-WORKDIR /llamaindex-project
+WORKDIR /llamaindex-learning
 
 # Install Python dependencies using pip
 RUN pip install -e . --no-binary :all:

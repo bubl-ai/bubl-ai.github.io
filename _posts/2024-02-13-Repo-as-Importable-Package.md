@@ -35,6 +35,6 @@ setup(
         'Topic :: Software Development :: Libraries :: Python Modules',
         'Operating System :: OS Independent',
     ],
-    package_dir={'': 'bubls'}
+    package_dir={'': 'bubls'} # Need it this way as we are installing it in editable mode
 )
 ```

@@ -29,12 +29,11 @@ RUN apt-get update && \
     apt-get install -y git vim && \
     rm -rf /var/lib/apt/lists/*
 
-# Create and activate a Conda environment
-RUN conda create --name myenv python=3.11 && \
-    echo "conda activate myenv" >> ~/.bashrc
+# Installs with  Conda
+RUN conda install numpy
 
-# Install numpy in the Conda environment
-RUN conda install -n myenv numpy
+# Installs with pip
+RUN pip install llama-index
 
 # SSH for GitHub authentication
 # keyscan is used to avoid manually veryfying GitHub hosts

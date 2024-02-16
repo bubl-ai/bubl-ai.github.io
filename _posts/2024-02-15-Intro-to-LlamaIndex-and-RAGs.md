@@ -5,6 +5,8 @@ categories: [LlamaIndex, Learning]
 tags: [RAGs, LlamaIndex]
 ---
 
+This post is my summarized interpretation of what I read in the [**LlamaIndex documentation**](https://docs.llamaindex.ai/en/stable/index.html).
+
 ## What is LlamaIndex?
 
 LlamaIndex provides abstractions to make the ingestion, structuring, and access of data more straightforward, enabling seamless integration into Large Language Models (LLMs) for more accurate text generation.

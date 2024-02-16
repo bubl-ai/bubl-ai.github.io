@@ -74,4 +74,7 @@ Using a volume to provide sensitive information, such as an SSH key, during runt
 
 - **Dynamic Configuration:** With a volume, sensitive information can be changed without rebuilding the Docker image. This flexibility is valuable when updating credentials or keys without redeploying the entire application.
 
+## Environmental Variables
+Setting up environmental variables correctly is important for both the security and functionality of your images. Make sure you create them either in the command line while starting container with `docker run -e [ENV_VAR_NAME]=[VALUE]`, or inside the container by executing `export [ENV_VAR_NAME]=[VALUE]`.
+
 In the ever-evolving landscape of machine learning, ensuring a secure and adaptable Docker environment is crucial for the success of your projects.

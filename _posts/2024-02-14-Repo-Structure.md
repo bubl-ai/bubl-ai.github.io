@@ -14,7 +14,7 @@ For us, having a fully operational Docker container is pivotal. This container m
 
 We strongly believe that being equipped with this setup places any developer in an ideal position. It transforms innovation into the primary focus, allowing us to bid farewell to errors associated with a subpar environment setup. 
 
-Now, let's delve into what you'll discover in the bubl-ai repositories, such as the [*llamaindex-learning*](https://github.com/bubl-ai/llamaindex-learning):
+Now, let's delve into what you'll discover in the bubl-ai repositories, such as the [*llamaindex-project*](https://github.com/bubl-ai/llamaindex-project):
 
 - **bubls**: Think of this as the source code of our repository, containing all the importable classes and functionalities. These are the fundamental building blocks, or bubls, that will serve as the foundation for crafting new creations!
 

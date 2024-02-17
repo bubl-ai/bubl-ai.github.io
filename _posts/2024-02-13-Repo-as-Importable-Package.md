@@ -12,20 +12,20 @@ Now, the presence of a `setup.py` file is your project's golden ticket, especial
 
 In a nutshell, doing this the right way allows you to treat your code just like any other Python library. The real magic happens when you realize you can seamlessly manage your source control and develop your code within the container. Everything neatly in the same place!
 
-The next `setup.py` file was gotten from our [*llamaindex-learning repository.*](https://github.com/bubl-ai/llamaindex-learning/blob/main/setup.py)
+The next `setup.py` file was gotten from our [*llamaindex-project repository.*](https://github.com/bubl-ai/llamaindex-project/blob/main/setup.py)
 
 ```python
 from setuptools import setup, find_packages
 
 setup(
-    name='llamaindex_project',
+    name='llamaindex-project',
     version='0.1.0',
     author= 'Santiago Olivar',
     author_email='contact.bubl.ai@gmail.com',
     description='',
     long_description=open('README.md').read(),
     long_description_content_type='text/markdown',
-    url='https://github.com/bubl-ai/llamaindex-learning',
+    url='https://github.com/bubl-ai/llamaindex-project',
     license='MIT',
     classifiers=[
         'Development Status ::Planning',

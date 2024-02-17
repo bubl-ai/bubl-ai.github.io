@@ -54,7 +54,7 @@ CMD ["/bin/bash"]
 ```
 
 You can use it in VSCode to seamlessly develop your code within the container.
-This is assuming that you already have Docker and VSCode installed, and that you set your GitHub ssh key in `~/.ssh/id_ed25519`. If you don't have this, feel free to check [this previous blog post](https://bubl-ai.com/posts/Raspberry-Pi-Setup/) and jumpt yo the GitHub section.
+This is assuming that you already have Docker and VSCode installed, and that you set your GitHub ssh key in `~/.ssh/id_ed25519`. If you don't have this, feel free to check [this previous blog post](https://bubl-ai.com/posts/Raspberry-Pi-Setup/) and jump to the GitHub section.
 
 The only thing missing is to build your image and run your container. This is done very easily by executing the next commands.
 ```bash

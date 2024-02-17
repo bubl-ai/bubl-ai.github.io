@@ -4,7 +4,7 @@ icon: fas fa-info-circle
 order: 1
 ---
 
-# Objective
+## Objective
 
 Hello there! At Bubl-AI, our mission is to simplify the learning, understanding, and implementation of AI by breaking it down into building blocks, which we call 'bubls.' How do we do this? Imagine it as knowledge and tools that are similar to LEGO pieces for creating AI solutions!"
 

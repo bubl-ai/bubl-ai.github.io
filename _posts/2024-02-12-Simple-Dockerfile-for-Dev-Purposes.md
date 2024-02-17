@@ -66,7 +66,7 @@ docker run -t -d -v [PATH_TO_GITHUB_SSH_KEY]:/root/.ssh/id_ed25519 [NAME_OF_IMAG
 
 In the ever-evolving landscape of machine learning, ensuring a secure and adaptable Docker environment is crucial for the success of your projects.
 
-Did you notice that we executed `docker run` with a volume include the ssh key? Let us explain why. When it comes to security in Docker, especially handling sensitive information like SSH private keys, caution is key. Embedding such data directly into Docker images may pose security risks, particularly if shared or made public. Best practices recommend avoiding direct embedding of sensitive information into images.
+Did you notice that we executed `docker run` with a volume to include the ssh key? Let us explain why. When it comes to security in Docker, especially handling sensitive information like SSH private keys, caution is key. Embedding such data directly into Docker images may pose security risks, particularly if shared or made public. Best practices recommend avoiding direct embedding of sensitive information into images.
 
 Using a volume to provide sensitive information, such as an SSH key, during runtime is a more secure approach compared to embedding it in the Docker image. Here are the advantages:
 
@@ -77,4 +77,4 @@ Using a volume to provide sensitive information, such as an SSH key, during runt
 - **Dynamic Configuration:** With a volume, sensitive information can be changed without rebuilding the Docker image. This flexibility is valuable when updating credentials or keys without redeploying the entire application.
 
 ## Environmental Variables
-Setting up environmental variables correctly is important for both the security and functionality of your images. Make sure you create them either in the command line while starting container with `docker run -e [ENV_VAR_NAME]=[VALUE]`, or inside the container by executing `export [ENV_VAR_NAME]=[VALUE]`. If you choose the latterz make sure to not include sensitive information.
+Setting up environmental variables correctly is important for both the security and functionality of your images. Make sure you create them either in the command line while starting container with `docker run -e [ENV_VAR_NAME]=$ENV_VAR_NAME`, or inside the container by executing `export [ENV_VAR_NAME]=[VALUE]`. If you choose the former make sure to not pass the sensitive information directly on the command line.

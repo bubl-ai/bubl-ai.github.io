@@ -21,7 +21,9 @@ I recently got my hands on the shiny new RPi 5 and thought, "Why not turn this s
 
 ## 1. Connect to your RPi using SSH or VNC
 
-### Make Your RPi Discoverable[^footnote]
+For a more detailed explanation you can use [this link](https://www.raspberrypi.com/documentation/computers/remote-access.html)
+
+### Make Your RPi Discoverable
 + Head to RPi Configuration > Interfaces
 + Turn on the switches for ssh and vnc
 
@@ -41,7 +43,7 @@ vncserver-virtual
 I am using an iPad for this, but the next steps shouldn't be very different for other devices.
 
 + You can use IP Scanner app to scan your local network devices. If you are connected to the same Network as your RPi, the IP number appears there.
-+ You can SSH into your RPi using the Termius. This is done easily by creating a new connection and using the IP you got on the previous point as the Hostname.
++ You can SSH into your RPi using Termius. This is done easily by creating a new connection and using the IP you got on the previous point as the Hostname.
 + If you want remote acces to your desktop you have to make sure to first run `vncserver-virtual` on your RPI and this will give you an IP number. Use this to set a new connection within the RVNC Viewer in you iPad.
 
 
@@ -78,7 +80,6 @@ Relevant Extensions to install:
 + Now you can clone your repo, `git clone git@github.com:[username]/[repo_name][^fn-nth-5]
 
 ## References
-[^footnote]: https://www.raspberrypi.com/documentation/computers/remote-access.html
 [^fn-nth-2]: https://stackoverflow.com/questions/66875411/
 [^fn-nth-3]: https://help.realvnc.com/hc/en-us/articles/360002249917-VNC-Connect-and-Raspberry-Pi#transferring-files-to-and-from-your-raspberry-pi-0-6
 [^fn-nth-4]: https://www.simplilearn.com/tutorials/docker-tutorial/raspberry-pi-docker

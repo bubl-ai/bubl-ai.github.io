@@ -15,7 +15,7 @@ Here's a straightforward Dockerfile template that suits the requirements for the
 - Installs basic dependencies.
 - Sets up a Conda environment and installs all required libraries.
 - Enables seamless GitHub authentication for source control within the container.
-- Uses "pip install -e ." to install the current directory as a package, allowing users to treat their utilities within the container like any other library. This is discussed in more detail [here](https://www.raspberrypi.com/documentation/computers/remote-access.html).
+- Uses "pip install -e ." to install the current directory as a package, allowing users to treat their utilities within the container like any other library. This is discussed in more detail [here](https://bubl-ai.com/posts/Repo-as-Importable-Package/).
 
 The next Dockerfile was gotten from our [*llamaindex-project repository.*](https://github.com/bubl-ai/llamaindex-project/blob/main/docker)
 

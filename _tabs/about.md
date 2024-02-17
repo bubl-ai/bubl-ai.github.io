@@ -10,6 +10,8 @@ Hello there! At Bubl-AI, our mission is to simplify the learning, understanding,
 
 ## Symbolism in the Logo
 
+<img src="/images/logo/logo_-1.png" width="100" height="100"/> 
+
 Bubls may be represented by different pillars: math, code, innovation, and infrastructure.
 
 - Blue: Symbolizes logic and stability, reflecting the precision inherent in mathematical concepts.

@@ -10,14 +10,12 @@ Hello there! At Bubl-AI, our mission is to simplify the learning, understanding,
 
 ## Symbolism in the Logo
 
-<img src="/images/logo/logo_-1.png" width="100" height="100"/> 
-
 Bubls may be represented by different pillars: math, code, innovation, and infrastructure.
 
-- Blue: Symbolizes logic and stability, reflecting the precision inherent in mathematical concepts.
+- **Blue**: Symbolizes logic and stability, reflecting the precision inherent in mathematical concepts.
 
-- Green: Represents growth, adaptability, and balance, reflecting the continuous evolution and creativity required in the dynamic field of software development.
+- **Green**: Represents growth, adaptability, and balance, reflecting the continuous evolution and creativity required in the dynamic field of software development.
 
-- Metallic shades: Signify tech innovations, representing modernity, durability, and technological sophistication.
+- **Metallic shades**: Signify tech innovations, representing modernity, durability, and technological sophistication.
 
-- Earthy brown: Captures infrastructure, symbolizing rock-solid stability and reliability.
+- **Earthy brown**: Captures infrastructure, symbolizing rock-solid stability and reliability.

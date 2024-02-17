@@ -21,7 +21,7 @@ I recently got my hands on the shiny new RPi 5 and thought, "Why not turn this s
 
 ## 1. Connect to your RPi using SSH or VNC
 
-For a more detailed explanation you can use [this link](https://www.raspberrypi.com/documentation/computers/remote-access.html)
+For a more detailed explanation you can use [this link](https://www.raspberrypi.com/documentation/computers/remote-access.html).
 
 ### Make Your RPi Discoverable
 + Head to RPi Configuration > Interfaces

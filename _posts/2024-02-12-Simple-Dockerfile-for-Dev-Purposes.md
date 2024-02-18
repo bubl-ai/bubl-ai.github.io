@@ -76,7 +76,7 @@ Using a volume to provide sensitive information, such as an SSH key, during runt
 
 - **Dynamic Configuration:** With a volume, sensitive information can be changed without rebuilding the Docker image. This flexibility is valuable when updating credentials or keys without redeploying the entire application.
 
-> There seems to be a way to allow VSCode to automatically share the GitHub SSH key with your container. I haven't been able to make it work, but it is worth sharing, ([LINK](https://code.visualstudio.com/remote/advancedcontainers/sharing-git-credentials). Let me know if it worked for you! {: .prompt-tip }
+> There seems to be a way to allow VSCode to automatically share the GitHub SSH key with your container. I haven't been able to make it work, but it is worth sharing, [LINK](https://code.visualstudio.com/remote/advancedcontainers/sharing-git-credentials). Let me know if it worked for you!
 
 ## Environmental Variables
 Setting up environmental variables correctly is important for both the security and functionality of your images. Make sure you create them either in the command line while starting container with `docker run -e [ENV_VAR_NAME]=$ENV_VAR_NAME`, or inside the container by executing `export [ENV_VAR_NAME]=[VALUE]`. If you choose the former make sure to not pass the sensitive information directly on the command line.

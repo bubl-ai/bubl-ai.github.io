@@ -71,13 +71,14 @@ Relevant Extensions to install:
 + Docker
 + Black Formatter
   - Set `Editor: Default Formatter' as 'Black Formatter'.
-  - Go to `Black-formatter: Args` and set `--line-length=80`.
+  - Go to `Black-formatter: Args` and set `--line-length=79`.
   - Set `editor.formatOnSave` to `true`.
 + autoDocstring
   - You can choose the docstring format of your preference.
 + GitLens
 + Dev Containers
   - Include all the previous extensions by identifier within `Dev Containers: Default Extensions` so all your extensions will always be installed.
+  - Update the dev.containers.defaultFeatures and include inside it all the settings you want to propagate to your containers. (e.g. all the black Formatter and autoDocstring settings)
 
 ## 4. Connect to GitHub with SSH
 + Generate new ssh key, `ssh-keygen -t ed25519 -C "[your_email@domain.com]"`

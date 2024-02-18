@@ -67,6 +67,7 @@ sudo apt install code
 ```
 
 Relevant Extensions to install:
++ Python, Pylance, and Python Debugger
 + Docker
 + Dev Containers
 + Black Formatter
@@ -75,6 +76,7 @@ Relevant Extensions to install:
   - Set `editor.formatOnSave` to `true`.
 + autoDocstring
   - You can choose the docstring format of your preference.
++ GitLens
 
 ## 4. Connect to GitHub with SSH
 + Generate new ssh key, `ssh-keygen -t ed25519 -C "[your_email@domain.com]"`

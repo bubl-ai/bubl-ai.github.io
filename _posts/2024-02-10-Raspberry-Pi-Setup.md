@@ -69,6 +69,12 @@ sudo apt install code
 Relevant Extensions to install:
 + Docker
 + Dev Containers
++ Black Formatter
+  - Set `Editor: Default Formatter' as 'Black Formatter'.
+  - Go to `Black-formatter: Args` and set `--line-length=80`.
+  - Set `editor.formatOnSave` to `true`.
++ autoDocstring
+  - You can choose the docstring format of your preference.
 
 ## 4. Connect to GitHub with SSH
 + Generate new ssh key, `ssh-keygen -t ed25519 -C "[your_email@domain.com]"`

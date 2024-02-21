@@ -1,5 +1,5 @@
 ---
-title: Simple Dockerfie for Dev Purposes
+title: Simple Dockerfile for Dev Purposes
 date: 2024-02-12 12:00:00 -0
 categories: [Repo, Setup]
 ---

@@ -21,9 +21,9 @@ I developed code that integrates these classes and initializes a fictional famil
 
 The dataset is organized into two folders:
 
-- Biographies: Contains narratives intricately woven based on our predefined family structure.
+- **Biographies**: Contains narratives intricately woven based on our predefined family structure.
 
-- Test Questions: Curates pairs of questions and answers derived from the biographies, serving as a valuable test dataset for evaluating various Retrieval-Augmented Generative (RAG) configurations.
+- **Test Questions**: Curates pairs of questions and answers derived from the biographies, serving as a valuable test dataset for evaluating various Retrieval-Augmented Generative (RAG) configurations.
 
 Without delay, let's dive into the experimentation phase. Here, we'll test various RAG customizations and configurations, assessing their performances to gain insights into their strengths and weaknesses.
 

@@ -26,5 +26,3 @@ The dataset is organized into two folders:
 - **Test Questions**: Curates pairs of questions and answers derived from the biographies, serving as a valuable test dataset for evaluating various Retrieval-Augmented Generative (RAG) configurations.
 
 Without delay, let's dive into the experimentation phase. Here, we'll test various RAG customizations and configurations, assessing their performances to gain insights into their strengths and weaknesses.
-
-

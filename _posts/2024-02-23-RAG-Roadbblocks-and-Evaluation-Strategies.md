@@ -44,7 +44,7 @@ We aim for the input to be minimal and accurate, seeking dense information just 
 ## RAG evaluation
 How can we evaluate the performance and take actions to improve it?
 
-**Output Quality**:
+- **Output Quality**:
 
     - **Context Adherence**: To what extent does the output align with the syllabus? Objective is to avoid hallucination.
 
@@ -55,4 +55,4 @@ How can we evaluate the performance and take actions to improve it?
 
     - **Chunk Attribution**: Aim for a high number of relevant chunks used, ensuring the response includes all pertinent chunks.
 
-    ![Actionable Evaluation](/images/RAG/actionable_evaluaation.jpg)_Actionable Evaluation. Source: [Galileo](https://www.youtube.com/watch?v=njN_Wu8dLfE)_
+    ![Actionable Evaluation](/images/RAG/actionable_evaluation.jpg)_Actionable Evaluation. Source: [Galileo](https://www.youtube.com/watch?v=njN_Wu8dLfE)_

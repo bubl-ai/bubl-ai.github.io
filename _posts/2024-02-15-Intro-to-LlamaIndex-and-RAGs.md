@@ -15,7 +15,7 @@ While LLMs are trained on extensive datasets, they lack training on private or d
 
 ## What is RAG?
 
-Retrieval-Augmented Generation (RAG) provides an alternative1. This technique focuses on context augmentation to achieve more precise text generation tailored to your specific data.
+Retrieval-Augmented Generation (RAG) provides an alternative. This technique focuses on context augmentation to achieve more precise text generation tailored to your specific data. A simple way to describe RAG is that it is a method to improve domain-specific responses of LLMs.
 
 Key steps in RAG implementation:
 

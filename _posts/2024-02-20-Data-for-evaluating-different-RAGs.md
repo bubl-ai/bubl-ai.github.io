@@ -2,14 +2,14 @@
 title: Data for evaluating different RAG configurations
 date: 2024-02-20 12:00:00 -0
 categories: [LlamaIndex, Learning]
-tags: [RAGs, LlamaIndex, Evaluation]
+tags: [RAG, LlamaIndex, Evaluation]
 ---
 
 In any AI project, it's crucial to ensure a proper evaluation, clearly define a problem, and continually assess how well your solution addresses it. Regular evaluations and feedback loops are crucial for optimizing its performance, making the selection of data for building and evaluating your product a pivotal consideration.
 
-In my case, I aimed for a simple dataset to explore various ideas and measure their impact on overall performance. Without a direct equivalent to MNIST for RAGs, I decided to create my own dataset using family tree information, perhaps influenced by binge-watching "The Crown" in the last few weeks. This dataset could effectively evaluate RAGs due to its interconnected documents and complex family tree structures, providing a good benchmark into different RAG configurations' performance.
+In my case, I aimed for a simple dataset to explore various ideas and measure their impact on overall performance. Without a direct equivalent to MNIST for RAG, I decided to create my own dataset using family tree information, perhaps influenced by binge-watching "The Crown" in the last few weeks. This dataset could effectively be used to evaluate RAG due to its interconnected documents and complex family tree structures, providing a good benchmark into different RAG configurations' performance.
 
-It is known that RAGs excel at answering questions found directly in the indexed documents but struggle with meta-level questions. Therefore, my plan is to compare their performance on simple queries like "Who is person X" versus more complex ones like "How many cousins does person X have?"
+It is known that RAG excel at answering questions found directly in the indexed documents but struggle with meta-level questions. Therefore, my plan is to compare their performance on simple queries like "Who is person X" versus more complex ones like "How many cousins does person X have?"
 
 Now, let me explain how I created this dataset. I first defined two classes, [Person and Family](https://github.com/bubl-ai/llamaindex-project/blob/main/bubls/bubls/synthetic_data/family_tree.py). 
 

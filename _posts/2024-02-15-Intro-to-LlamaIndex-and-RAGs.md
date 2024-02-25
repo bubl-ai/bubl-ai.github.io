@@ -1,8 +1,8 @@
 ---
-title: Intro to RAGs and LlamaIndex
+title: Intro to RAG and LlamaIndex
 date: 2024-02-15 12:00:00 -0
 categories: [LlamaIndex, Learning]
-tags: [RAGs, LlamaIndex]
+tags: [RAG, LlamaIndex]
 ---
 
 This post is my summarized interpretation of what I read in the [**LlamaIndex documentation**](https://docs.llamaindex.ai/en/stable/index.html).

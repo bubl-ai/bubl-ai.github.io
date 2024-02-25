@@ -42,15 +42,16 @@ Products often get stuck in the prototype phase, primarily due to challenges in 
 We aim for the input to be minimal and accurate, seeking dense information just enough to generate a high-quality output. The desired output from your system is to formulate an answer that thoroughly addresses the question asked, maintaining accuracy and relevance to the context.
 
 # RAG evaluation
+How can we improve the performance and what do we need to evaluate?
 
 Output Quality:
 
-- Context Adherence: To what extent does the output align with the syllabus? Objective is to avoid hallucination.
+- Context Adherence: To what extent does the output align with the syllabus? Objective is to avoid hallucination, if this is low improve the quality of your data.
 
-- Completeness: Ensure key information is not omitted from the answer. Assess the comprehensiveness of the output.
+- Completeness: Ensure key information is not omitted from the answer. Assess the comprehensiveness of the output. It is important to experiment with chunk size, add more relevant data to the vector store, or use a different embedding model.
 
 Retrieval Strategy:
 
-- Chunk Attribution: Aim for a high number of relevant chunks used, ensuring the response includes all pertinent chunks.
+- Chunk Attribution: Aim for a high number of relevant chunks used, ensuring the response includes all pertinent chunks. Some ideas to tackle this are: tuning chunk size, change prompt for better utilization of chunks, or optimize vector store parameters.
 
-- Chunk Utilization: Evaluate intra-chunk utilization. Examine if the response uses all the relevant section of the context.
+- Chunk Utilization: Evaluate intra-chunk utilization. Examine if the response uses all the relevant section of the context. If completeness is high try reducing chunk size as this is a sign that you are wasting tokens. If completeness is low this signals a quality issue so increase the chunk size and add data to vector store.

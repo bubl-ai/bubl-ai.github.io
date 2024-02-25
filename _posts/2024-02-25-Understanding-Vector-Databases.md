@@ -23,17 +23,17 @@ A very brief description on how RAG use Vector Databases is the following. Model
 
 Vector Databases offer a suite of powerful features designed for efficient data management:
 
-1. Mathematical Operations and Specialized Indexing:
+1. **Mathematical Operations and Specialized Indexing**:
     - Use of clustering techniques for filtering and locating similar vectors.
     - Faster and deterministic retrieval of data using specialized Vector indexes.
-2. Efficient and responsive Vector Storage:
+2. **Efficient and responsive Vector Storage**:
     - Store vectors efficiently using methods like compression.
     - Scale out seamlessly by distributing data across multiple machines, allowing to handle extensive datasets.
     - Enable real-time updates by eliminating the need for complete re-indexing.
-3. Comprehensive Data Management and Streamlined Operations:
+3. **Comprehensive Data Management and Streamlined Operations**:
     - Provide comprehensive data management functions, including insertion, deletion, and updating operations.
     - Enhancing overall efficiency by streamlining routine operations such as backups and the creation of data.
-4. Seamless Integration and Enhanced Security:
+4. **Seamless Integration and Enhanced Security**:
     - Seamlessly integrate with broader data processing ecosystems, ensuring compatibility.
     - Enhance data security and access control, safeguarding information within the database.
 

@@ -11,6 +11,8 @@ In my case, I aimed for a simple dataset to explore various ideas and measure th
 
 It is known that RAG excel at answering questions found directly in the indexed documents but struggle with meta-level questions. Therefore, my plan is to compare their performance on simple queries like "Who is person X" versus more complex ones like "How many cousins does person X have?"
 
+## Synthetic Dataset
+
 Now, let me explain how I created this dataset. I first defined two classes, [Person and Family](https://github.com/bubl-ai/llamaindex-project/blob/main/bubls/bubls/synthetic_data/family_tree.py). 
 
 - **Person**: Contains relevant information such as name, birthday, first-degree relatives, and life status. This class facilitates information organization and retrieval.

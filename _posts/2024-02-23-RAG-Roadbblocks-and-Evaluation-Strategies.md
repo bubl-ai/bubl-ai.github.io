@@ -5,7 +5,7 @@ categories: [RAG, Evaluation]
 tags: [RAG, Evaluation]
 ---
 
-The next topic was covered greatly and in more detail in [this YouTube live session](https://www.youtube.com/watch?v=njN_Wu8dLfE). This is my own intepretation on what was discussed there.
+The next topic was covered greatly and in more detail in [this YouTube live session](https://www.youtube.com/watch?v=njN_Wu8dLfE). This is my own interpretation on what was discussed there.
 
 2023 will probably be remembered as the year of the big boom of Generative AI prototypes. As 2024 unfolds, the market is shifting towards production and deployment, but there are significant issues with LLMs, such as hallucinations caused by factual inconsistencies and fabrications, opacity in the data used to train the models, and the inability to leverage proprietary information to provide content.
 
@@ -13,15 +13,15 @@ RAG have gained traction in reducing the gap between the development and deploym
 
 ## Where can a RAG system go wrong?
 
-- Input Data:
+- **Input Data**:
     - Do you have sufficient data?
     - Is it properly labeled?
     - Is the quality high?
-- Chunking strategies:
+- **Chunking strategies**:
     - Are you employing the correct chunk size?
-- Embedding Space:
+- **Embedding Space**:
     - Are you optimizing your embedding parameters?
-- Vector Store:
+- **Vector Store**:
     - Is the retriever retrieving the appropriate chunks of data?
     - Do these chunks truly contribute to solving the response, or not?
     - It is possible that the retriever is not selecting the right pieces of information.
@@ -29,7 +29,7 @@ RAG have gained traction in reducing the gap between the development and deploym
     How much of each chunk is being utilized to answer the question?
     - Is the prompt constructed properly, capturing both the question and context for a proper response?
     - What portion of the chunks is used to generate a response from the model?
-- Output:
+- **Output**:
     - Does the model response adhere to the prompt and provided query, or is it hallucinating and providing undesired information?
     - To what extent did the model address the user's question?
     - Does the model output comprehensively answer the initial query, or is the response incomplete, resulting in a poor-quality output?
@@ -41,17 +41,17 @@ Products often get stuck in the prototype phase, primarily due to challenges in 
 ## What is the desired performance?
 We aim for the input to be minimal and accurate, seeking dense information just enough to generate a high-quality output. The desired output from your system is to formulate an answer that thoroughly addresses the question asked, maintaining accuracy and relevance to the context.
 
-# RAG evaluation
+## RAG evaluation
 How can we improve the performance and what do we need to evaluate?
 
-Output Quality:
+**Output Quality**:
 
-- Context Adherence: To what extent does the output align with the syllabus? Objective is to avoid hallucination, if this is low improve the quality of your data.
+    - **Context Adherence**: To what extent does the output align with the syllabus? Objective is to avoid hallucination, if this is low improve the quality of your data.
 
-- Completeness: Ensure key information is not omitted from the answer. Assess the comprehensiveness of the output. It is important to experiment with chunk size, add more relevant data to the vector store, or use a different embedding model.
+    - **Completeness**: Ensure key information is not omitted from the answer. Assess the comprehensiveness of the output. It is important to experiment with chunk size, add more relevant data to the vector store, or use a different embedding model.
 
-Retrieval Strategy:
+- **Retrieval Strategy**:
 
-- Chunk Attribution: Aim for a high number of relevant chunks used, ensuring the response includes all pertinent chunks. Some ideas to tackle this are: tuning chunk size, change prompt for better utilization of chunks, or optimize vector store parameters.
+    - **Chunk Attribution**: Aim for a high number of relevant chunks used, ensuring the response includes all pertinent chunks. Some ideas to tackle this are: tuning chunk size, change prompt for better utilization of chunks, or optimize vector store parameters.
 
-- Chunk Utilization: Evaluate intra-chunk utilization. Examine if the response uses all the relevant section of the context. If completeness is high try reducing chunk size as this is a sign that you are wasting tokens. If completeness is low this signals a quality issue so increase the chunk size and add data to vector store.
+    - **Chunk Utilization**: Evaluate intra-chunk utilization. Examine if the response uses all the relevant section of the context. If completeness is high try reducing chunk size as this is a sign that you are wasting tokens. If completeness is low this signals a quality issue so increase the chunk size and add data to vector store.

@@ -19,7 +19,7 @@ Here's a straightforward Dockerfile template that suits the requirements for the
 
 The next Dockerfile was gotten from our [*llamaindex-project repository.*](https://github.com/bubl-ai/llamaindex-project/blob/main/docker)
 
-```
+``` docker
 # Use an official base image with Python and Conda
 FROM continuumio/anaconda3:latest
 

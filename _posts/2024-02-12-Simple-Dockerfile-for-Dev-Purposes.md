@@ -59,7 +59,7 @@ This is assuming that you already have Docker and VSCode installed, and that you
 The only thing missing is to build your image and run your container. This is done very easily by executing the next commands.
 ```bash
 docker build -t [NAME_OF_IMAGE] -f Dockerfile .
-docker run -t -d -v [PATH_TO_GITHUB_SSH_KEY]:/root/.ssh/id_ed25519 [NAME_OF_IMAGE] /bin/bash
+docker run -t -d -v [PATH_TO_GITHUB_SSH_KEY]:/root/.ssh/id_ed25519 [NAME_OF_IMAGE]
 ```
 
 ## Security Tips for Docker

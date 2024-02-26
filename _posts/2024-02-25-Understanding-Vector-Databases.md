@@ -51,7 +51,7 @@ This question is not straightforward to answer as it may depend on your specific
 ![RAG](/images/Vector_Databases/landscape.jpg)_[Source:](https://blog.det.life/why-you-shouldnt-invest-in-vector-databases-c0cd3f59d23c?gi=48719dcb8156c): Vector Database Landscape_
 
 
-For experimentation purposes I will be trying Pinecone, Qdrant, and Chroma. I will make a future post on this as, stay tuned!
+For experimentation purposes I will be testing some of these options. I will make a future post on this, stay tuned!
 
 
 ## References

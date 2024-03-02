@@ -15,9 +15,9 @@ A common misconception is that creating applications with LLMs is easy – just 
 
 - **Complete SaaS solution:** It is necessary to offer a complete solution that can address growing needs and user loads, enhance process automation, facilitate seamless connectivity with other tools and systems, and incorporate robust security measures.
 
-**Stochastic Nature of LLMs:** The LLM itself acts like a bit of a black box. Different techniques and tools are needed to ensure it works as intended. These often require a customized approach, working backward from the use case to find the best combination of techniques. While using LLMs correctly can create substantial value, thinking of them as plug-and-play solutions might impress in a demo but can lead to disappointment in a real production setting.
+- **Stochastic Nature of LLMs:** The LLM itself acts like a bit of a black box. Different techniques and tools are needed to ensure it works as intended. These often require a customized approach, working backward from the use case to find the best combination of techniques. While using LLMs correctly can create substantial value, thinking of them as plug-and-play solutions might impress in a demo but can lead to disappointment in a real production setting.
 
-# Enterprise solutions at scale with RAG
+## Enterprise solutions at scale with RAG
 
 Unlocking the true value of AI in business happens when seamlessly integrating it into daily operations. It's crucial to find the best ways to use this new technology, and for this a good idea is to start from the problem you want to solve and develop a solution backwards. When integrated into the heart of a business, generative AI adds significant value by streamlining operations, improving decision-making, and shifting decision making from acting reactively to acting proactively.
 

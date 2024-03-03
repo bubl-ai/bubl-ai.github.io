@@ -1,5 +1,5 @@
 ---
-title: RAG roadblocks and evaluation strategies
+title: RAG Roadblocks and Evaluation Strategies
 date: 2024-02-23 12:00:00 -0
 categories: [RAG, Evaluation]
 tags: [RAG, Evaluation]

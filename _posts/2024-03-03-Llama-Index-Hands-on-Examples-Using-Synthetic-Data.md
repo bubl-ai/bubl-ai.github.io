@@ -1,5 +1,5 @@
 ---
-title: Llama-Index Hands-on Examples Using Synthetic Data.
+title: Llama-Index Hands-On Examples Using Synthetic Data.
 date: 2024-03-03 12:00:00 -0
 categories: [LlamaIndex, Examples]
 tags: [RAG, LlamaIndex, Examples]

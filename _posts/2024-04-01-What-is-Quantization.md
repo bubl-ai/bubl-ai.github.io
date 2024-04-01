@@ -22,3 +22,5 @@ In summary, the goal of quantization is to make the model use fewer computationa
 - **Scalability & Deployment**: With lower memory footprint, it's easier to scale deployment to meet growing usage demands.
 
 - **Memory & Storage Savings**: Reduced memory usage and smaller model sizes mean they can run on devices with limited memory, reducing costs.
+
+Examples on how to use LlamaIndex to do quantization can be found [in our repository](https://github.com/bubl-ai/llamaindex-project/blob/main/examples/quantization/mistral_quantization.ipynb), and on [this post by LLamaIndex](https://twitter.com/llama_index/status/1711049190649061786).

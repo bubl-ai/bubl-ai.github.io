@@ -1,5 +1,5 @@
 ---
-title: RAG Design Tradeoffs
+title: RAG Design Trade-offs
 date: 2024-03-15 12:00:00 -0
 categories: [RAG, Design]
 tags: []

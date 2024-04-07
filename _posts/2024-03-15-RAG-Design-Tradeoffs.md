@@ -15,8 +15,9 @@ RAG systems can be decomposed mainly in the next major components:
 
 1. Loading, Processing and Transforming
 2. Data Storage and Organization
-3. Retrieval and Augmentation
-4. Generation and Evaluation
+3. Retrieval
+4. Augmentation and Generation
+5. Evaluation
 
 ## 1. Loading, Processing and Transforming 
 The initial step involves consuming the data and making it ready to be used by RAG. This is comparable to data cleaning and feature engineering pipelines in Machine Learning, or ETL pipelines in Data Engineering.
@@ -115,8 +116,36 @@ LlamaIndex offers a range of components that simplify the creation and utilizati
 
 You can find an example of how to create and query a Knowledge Graph with LlamaIndex [here](https://docs.llamaindex.ai/en/stable/examples/query_engine/knowledge_graph_query_engine/). Additionally, [this video](https://www.youtube.com/watch?v=bPoNCkjDmco) provides valuable insights by illustrating a real example, helping to understand the differentiation of a Graph RAG from other options and its benefits.
 
-------
-# WIP
-## 3. Retrieval and Augmentation
-## 4. Generation and Evaluation
+## 3. Retrieval
+Retrieval involves identifying pieces of stored data that are relevant to the user's query. At its core, it consists on embedding the query using the same model employed for indexing and then comparing the embedded query with the indexed data. They serve as a crucial component in query engines for retrieving relevant context. Links to LLamaIndex [Query Engine](https://docs.llamaindex.ai/en/stable/module_guides/deploying/query_engine/) and [Chat Engine](https://docs.llamaindex.ai/en/stable/module_guides/deploying/chat_engines/).
+
+The effectiveness of a RAG system depends entirely on the search quality of the backend retrieval system. While LLMs are great at understanding and answering questions, their potential cannot be fully realized if the system lacks high-quality search capabilities for scanning large volumes of information and retrieving the most relevant ones to answer the user query.
+
+Next, we will discuss various retrieval strategies available, covering their advantages and disadvantages. It's worth noting that regardless of the chosen retrieval strategy, it's crucial to consider how many of the retrieved documents will be utilized. This can be achieved by selecting the top-k closest chunks or by establishing a similarity cutoff. 
+
+### 3.1. Retrieval Strategy
+
+#### 3.1.1. Keyword Search
+Keyword-based retrieval operates by matching precise words or phrases from a query with those found in documents. This method employs sparse embeddings, also referred to as sparse vector search, where vectors are primarly composed of zero values with only a handful of non-zero values.
+
+Sparse vectors excel in domains and scenarios abundant with rare keywords or specialized terms. This is because they represent each dimension as a word or subword, simplifying the interpretation of document rankings. 
+
+While this method is straightforward and fast, it has its limitations. It can frequently yield low-quality, irrelevant results as it struggles to handle semantic similarity, which can pose challenges with misspellings, synonyms, or polysemy. Additionally, it disregards the context or meaning of words, potentially leading to irrelevant outcomes.
+
+#### 3.1.1. Semantic Search
+Semantic search using Deep Learning models has become a very important feature for most search engines, enabling the understanding of query text meanings rather than simply relying on keyword matching. These models produce numerical vector representations of data, typically densely packed with information and mostly comprised of non-zero values.
+
+The key strength of dense vector search lies in its ability to effectively handle semantic similarity. However, its weakness lies in exact matching, where it may struggle to retrieve documents containing the exact query terms but are semantically dissimilar overall.
+
+Another drawback of this approach is latency, which refers to the time taken to retrieve relevant documents. The retriever system needs to compare query embeddings with embeddings of each document indexed in a vector database to identify relevant documents. This process can be time-consuming and may result in high latency, which may be unacceptable for certain real-world scenarios. Possible solutions to mitigate this include Metadata Filtering and the use of Approximate Nearest Neighbors.
+
+#### 3.1.2. Hybrid Search
+What if we could leverage the strengths of both Keyword and Semantic Searches simultaneously? Hybrid search offers a solution by combining results from semantic search with those from keyword search. This approach is particularly useful for scenarios where we aim to incorporate semantic search capabilities while still requiring exact phrase matching for specific terms, such as product or patient names.
+
+The process to implement an hybrid search is simple. Keyword search and vector search typically yield separate sets of results, usually in the form of sorted lists based on calculated relevance. To generate a hybrid search, these calculated scores are weighted using a parameter `alpha`, which determines the balance between keyword-based and semantic search. Some mixing methods include Reciprocal Ranked Fusion, [Relative Score Fusion](https://weaviate.io/blog/weaviate-1-20-release), and [Distribution-Based Score Fusion](https://medium.com/plain-simple-software/distribution-based-score-fusion-dbsf-a-new-approach-to-vector-search-ranking-f87c37488b18).
+
+-----
+WIP
+## 4. Augmentation and Generation
+## 5. Evaluation
 -----

@@ -5,7 +5,7 @@ categories: [RAG, Challenges]
 tags: []
 ---
 
-This post is based on [this excellent article](https://cloudatlas.me/why-do-rag-pipelines-fail-advanced-rag-patterns-part1-841faad8b3c2) that discusses the different ways that RAG can fail during the stages of retrieval of data, augmentation of this information, and generation process. The purpose of this post is to provide my own take on it and propose different ways for tackling these challenges.
+This post is based on [this excellent article](https://cloudatlas.me/why-do-rag-pipelines-fail-advanced-rag-patterns-part1-841faad8b3c2) that discusses the different ways that RAG can fail during the stages of retrieval of data, augmentation of this information, and generation process. The purpose of this post is to expand on it, provide my own take on it and propose different ways for tackling these challenges.
 
 ## Retrieval
 

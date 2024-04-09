@@ -127,7 +127,7 @@ Next, we will discuss various retrieval strategies available, covering their adv
 ### 3.1. Retrieval Strategy
 
 #### 3.1.1. Keyword Search
-Keyword-based retrieval operates by matching precise words or phrases from a query with those found in documents. This method employs sparse embeddings, also referred to as sparse vector search, where vectors are primarly composed of zero values with only a handful of non-zero values.
+Keyword-based retrieval operates by matching precise words or phrases from a query with those found in documents. This method employs sparse embeddings, also referred to as sparse vector search, where vectors are primarily composed of zero values with only a handful of non-zero values.
 
 Sparse vectors excel in domains and scenarios abundant with rare keywords or specialized terms. This is because they represent each dimension as a word or subword, simplifying the interpretation of document rankings. 
 

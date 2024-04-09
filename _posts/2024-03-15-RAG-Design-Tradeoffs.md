@@ -169,14 +169,22 @@ The system prompt is the message added to the context and query sent to the LLM.
 There are various fascinating techniques for prompt engineering. You can find a well-described list of advanced prompt engineering techniques [here](https://www.promptingguide.ai/techniques/tot). Below are some examples:
 
 - **Few-Shot:** Support the model with a few input-output examples to enable in-context learning, steering the model to better performance.
-- **Chain-of-Thought:** Structuring the input prompt to mimic human reasoning, aiding language models in tasks requiring logic, calculation, and decision-making.
+- **Chain-of-Thought:** Structuring the input prompt to mimic human reasoning, aiding LLMs in tasks requiring logic, calculation, and decision-making.
 - **Context Transformation:** Dynamically adding context transformations as functions in the prompt variable. For instance, using Personal Identifiable Information masking in LlamaIndex for legal compliance and data privacy/security concerns.
 - **ReAct:** Reasoning and Acting with LLMs, enabling the model to generate verbal reasoning traces and actions for a task.
 
 Other very interesting prompt engineering techniques include Generate Knowledge, Tree of Thoughts, Thread of Thoughts, and Emotion Prompt. This is a big topic so I want to give it a bigger space, stay tuned for future posts covering this topic in more detail!
 
+## 5. Generation
+At this stage we need to ask, which model should be used to generate a response for our prompt? With LlamaIndex, it's simple to change the underlying LLM and plug in any model listed on their [LLM API Reference documentation](https://docs.llamaindex.ai/en/stable/api_reference/llms/) or [Langchain’s LLM page](https://python.langchain.com/docs/integrations/llms/). Moreover, customizing your selected model with the [LlamaIndex Abstractions](https://docs.llamaindex.ai/en/stable/module_guides/models/llms/usage_custom/?h=context_window#example-explicitly-configure-context_window-and-num_output) is easy, allowing you to control various aspects of the underlying model such as context window size, maximum response size, model output randomness, and vocabulary filtering.
+
+To compare different models, resources like [Chatbot Arena](https://chat.lmsys.org/) or the [HuggingFace Open LLM Leaderboard](https://huggingface.co/spaces/HuggingFaceH4/open_llm_leaderboard) can be utilized. When selecting the model, it's essential to consider factors such as:
+- License: Understand the user requirements and potential pitfalls of the License of the models under consideration and select the one that best suits specific needs.
+- Knowledge Cutoff: Each LLM is often associated with a claimed knowledge cutoff date or the dates at which the training data was gathered. This information is crucial for applications requiring up-to-date information.
+- Quality and Cost: The chosen model affects the coherence, grammatical correctness, helpfulness, bias, and safety of the responses, as well as the cost of the solution if a proprietary model is chosen. If budget and latency are not constraints, it's advisable to use the best LLM available for the specific task.
+- Domain-specific Performance: Identify the strengths or weaknesses of a model using different benchmark metrics. Detailed descriptions of benchmarks can be found in [this post](https://towardsdatascience.com/evaluating-large-language-models-a145b801dce0). Some relevant metrics include ROUGE for text summarization and translation, BLEU for translation. Domain-specific metric descriptions related to math, logic, reasoning, and coding, such as MMLU and AI2 Reasoning Challenge, are available on this [HuggingFace page](https://huggingface.co/spaces/HuggingFaceH4/open_llm_leaderboard).
+
 -----
 WIP
-## 5. Generation
 ## 6. Evaluation
 -----

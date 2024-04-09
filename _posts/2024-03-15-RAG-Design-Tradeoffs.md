@@ -16,8 +16,9 @@ RAG systems can be decomposed mainly in the next major components:
 1. Loading, Processing and Transforming
 2. Data Storage and Organization
 3. Retrieval
-4. Augmentation and Generation
-5. Evaluation
+4. Augmentation
+5. Generation
+6. Evaluation
 
 ## 1. Loading, Processing and Transforming 
 The initial step involves consuming the data and making it ready to be used by RAG. This is comparable to data cleaning and feature engineering pipelines in Machine Learning, or ETL pipelines in Data Engineering.
@@ -144,8 +145,38 @@ What if we could leverage the strengths of both Keyword and Semantic Searches si
 
 The process to implement an hybrid search is simple. Keyword search and vector search typically yield separate sets of results, usually in the form of sorted lists based on calculated relevance. To generate a hybrid search, these calculated scores are weighted using a parameter `alpha`, which determines the balance between keyword-based and semantic search. Some mixing methods include Reciprocal Ranked Fusion, [Relative Score Fusion](https://weaviate.io/blog/weaviate-1-20-release), and [Distribution-Based Score Fusion](https://medium.com/plain-simple-software/distribution-based-score-fusion-dbsf-a-new-approach-to-vector-search-ranking-f87c37488b18).
 
+## 4. Augmentation
+When discussing augmentation, it's important to differentiate between two types: Query and Prompt Augmentation. While there may be significant overlap between these two, and some methodologies described below may be applicable to both, it's crucial to emphasize that augmentation can occur at different stages of the pipeline, which must be considered when designing RAG systems.
+
+- **Query augmentation:** This occurs before retrieval and involves modifying the user's original query. The main objective is to enhance retrieval.
+- **Prompt Augmentation:** This occurs after retrieval and involves modifying the prompt that will be sent to the LLM to generate the final output. The main objective is to improve the generation of the final output with a given knowledge/context.
+
+### 4.1. Query Augmentation
+Query augmentation addresses the issue of how a query is phrased and whether it is optimal for finding relevant data to support the answer. Techniques for query transformation significantly enhance RAG performance, especially when dealing with short and vague user queries.
+
+Here is a list of different query transformations:
+- **Routing:** Retain the query but determine the relevant subset of pipelines that the query applies to.
+- **Query rewriting:** Maintain the same pipelines but rephrase the query using an LLM to avoid grammatical issues.
+- **Sub-query generation:** Divide the query into smaller, more detailed sub-queries based on the original query and pass them to different pipelines.
+- **ReAct Agent Tool Picking:** Identify the tool to pick and the query to execute on the tool based on the initial query.
+- **Hypothetical Document Embeddings:** Create a hypothetical document for an incoming query using an LLM, embed the document, and use it together with the original query to retrieve similar documents. This method assumes that the generated document will share some similarities with a good answer and may be closer in the embedding space than the query.
+
+Please refer to [this LlamaIndex example](https://docs.llamaindex.ai/en/stable/examples/query_transformations/query_transform_cookbook/), which provides more detailed information on different query transformation methods.It's crucial to be cautious when using these methods, as augmentation may be open-ended and could potentially mislead or misinterpret the context, leading to dangerous or unsafe generated outputs.
+
+### 4.2. Prompt Augmentation
+The system prompt is the message added to the context and query sent to the LLM. The precise wording of this prompt is crucial for RAG performance. In a general sense, you can pre-program your system to behave as desired. For example, explicitly mentioning that only information from the provided context should be used, not general knowledge. Additionally, it can also serve as a template for how the response should appear.
+
+There are various fascinating techniques for prompt engineering. You can find a well-described list of advanced prompt engineering techniques [here](https://www.promptingguide.ai/techniques/tot). Below are some examples:
+
+- **Few-Shot:** Support the model with a few input-output examples to enable in-context learning, steering the model to better performance.
+- **Chain-of-Thought:** Structuring the input prompt to mimic human reasoning, aiding language models in tasks requiring logic, calculation, and decision-making.
+- **Context Transformation:** Dynamically adding context transformations as functions in the prompt variable. For instance, using Personal Identifiable Information masking in LlamaIndex for legal compliance and data privacy/security concerns.
+- **ReAct:** Reasoning and Acting with LLMs, enabling the model to generate verbal reasoning traces and actions for a task.
+
+Other very interesting prompt engineering techniques include Generate Knowledge, Tree of Thoughts, Thread of Thoughts, and Emotion Prompt. This is a big topic so I want to give it a bigger space, stay tuned for future posts covering this topic in more detail!
+
 -----
 WIP
-## 4. Augmentation and Generation
-## 5. Evaluation
+## 5. Generation
+## 6. Evaluation
 -----

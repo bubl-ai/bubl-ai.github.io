@@ -82,7 +82,7 @@ When selecting your database, consider the following:
 - **Integration:** Ensure compatibility with your development framework.
 - **Managed vs Self-Hosted:** Decide based on your team's capabilities and needs. Consider if you have a specialized engineering team for self-hosting and weigh the opportunity cost. Alternatively, managed databases might be a suitable solution.
 - **Pricing:** Options range from cloud-based plans where you pay according to your usage, to self-hosted solutions where you pay only for the resources utilized.
-- Security and Privacy: Check if the Vector Database complies with SOC, GDPR, HIPAA or any other regulations that applies to you.
+- **Security and Privacy:** Check if the Vector Database complies with SOC, GDPR, HIPAA or any other regulations that applies to you.
 - **Performance and Processing:** Assess your app's latency requirements, whether it serves online streaming of data or operates in batch offline mode.
 - **Search Support:** Consider if the database offers features like Multi-modal, Full Text Search, Similarity Search, and Hybrid Search.
 - **Reliability:** Review uptime commitments in Service Level Agreements.
@@ -91,7 +91,7 @@ When selecting your database, consider the following:
 - **Auto-Scaling:** Determine if the database ensures constant availability by adapting to traffic and if scaling up as data size grows is straightforward.
 
 ### 2.2. Document Hierarchies
-In practical application, RAG systems may face challenges with limited retrieval accuracy particularly when dealing with an extensive set of indistinguishable documents. One effective solution is to implement a document hierarchy, which organizes data in a hierarchical manner to enhance information retrieval. This hierarchy associates chunks with nodes and organizes nodes in parent-child relationships.
+RAG systems may face challenges with limited retrieval accuracy particularly when dealing with an extensive set of indistinguishable documents. One effective solution is to implement a document hierarchy, which organizes data in a hierarchical manner to enhance information retrieval. This hierarchy associates chunks with nodes and organizes nodes in parent-child relationships.
 
 **Pros:**
 - Improves efficiency and facilitates faster and more reliable data retrieval and processing.

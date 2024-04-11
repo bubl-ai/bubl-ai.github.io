@@ -1,13 +1,13 @@
 ---
 title: RAG Design Trade-offs
-date: 2024-03-15 12:00:00 -0
+date: 2024-03-23 12:00:00 -0
 categories: [RAG, Design]
 tags: []
 ---
 
 Tools like LlamaIndex have made it easier to create RAG systems. As of now, the main challenge isn't building them, making a basic RAG demo is quite simple. The real difficulty lies in crafting a system that is properly evaluated and that can be deployed at scale, is reliable, secure, and compatible with enterprise solutions.
 
-For a deeper understanding of RAG systems and their components, I recommend reading [this post by Michal Oleszak](https://towardsdatascience.com/designing-rags-dbb9a7c1d729). It provides a detailed overview and explores various design choices. In this text, I'll expand on the performance, cost, compatibility, and solutions trade-offs of each component, focusing solely on LlamaIndex solutions.
+For a deeper understanding of RAG systems and their components, I recommend reading [this post by Michal Oleszak](https://towardsdatascience.com/designing-rags-dbb9a7c1d729). It provides a detailed overview and explores various design choices. For writing this post, I followed a similar structure and flow of ideas, but I am expanding and focusing more on the performance, cost, compatibility, and solutions trade-offs of each component, and using solely LlamaIndex solutions.
 
 ## Main RAG components
 
@@ -34,7 +34,7 @@ However, it's essential to balance the trade-offs between performance and compat
 ### 1.2. Processing
 Indexing new data can occur in either batch mode or streaming mode. The choice between these modes significantly impacts how quickly new data becomes available to the RAG system.
 
-- **Batch:** In this mode, once in a pre-defined timeframe the data is collected and passed to the indexing model. It offers a cost-effectiveness and simpler maintenance solution. Batch mode is suitable for applications that do not require real-time insights, efficiently managing large volumes of data at regular intervals.
+- **Batch:** In this mode, once in a pre-defined timeframe the data is collected and passed to the indexing model. It offers a cost-effective and simpler maintenance solution. Batch mode is suitable for applications that do not require real-time insights, efficiently managing large volumes of data at regular intervals.
 
 - **Streaming:** This mode continually indexes fresh data as soon as it becomes available. It is crucial for scenarios where the chatbot requires the most up-to-date information. Streaming mode enables organizations to derive real-time insights and promptly act on incoming data, making it indispensable for time-sensitive applications.
 
@@ -184,7 +184,63 @@ To compare different models, resources like [Chatbot Arena](https://chat.lmsys.o
 - **Quality and Cost:** The chosen model affects the coherence, grammatical correctness, helpfulness, bias, and safety of the responses, as well as the cost of the solution if a proprietary model is chosen. If budget and latency are not constraints, it's advisable to use the best LLM available for the specific task.
 - **Domain-specific Performance:** Identify the strengths or weaknesses of a model using different benchmark metrics. Detailed descriptions of benchmarks can be found in [this post](https://towardsdatascience.com/evaluating-large-language-models-a145b801dce0). Some relevant metrics include ROUGE for text summarization and translation, BLEU for translation. Domain-specific metric descriptions related to math, logic, reasoning, and coding, such as MMLU and AI2 Reasoning Challenge, are available on this [HuggingFace page](https://huggingface.co/spaces/HuggingFaceH4/open_llm_leaderboard).
 
------
-WIP
 ## 6. Evaluation
------
+Reliably evaluating your changes and improvements is a crucial part of LLM application development. Every strategy has pros and cons, and a key aspect of building and improving your application is evaluating whether your changes have enhanced its usefulness, accuracy, performance, and cost.
+
+When developing your LLM application, establishing an end-to-end evaluation workflow can provide valuable guidance. This approach allows you to define a comprehensive evaluation process that encompasses the entire system. Beginning with a small but diverse set of queries can help you gain initial insights into the system's behavior. As you encounter problematic queries or interactions, you can gradually expand your set of examples and automate the evaluation process using a defined set of summary metrics.
+
+[End-to-End evaluation](https://docs.llamaindex.ai/en/stable/optimizing/evaluation/e2e_evaluation/) serves as the holistic view of the system's performance, helping you understand how well it functions in real-world scenarios. With a complex pipeline, it can be challenging to identify which components are influencing your results, as you transition from end-to-end evaluation to [Component Wise evaluation](https://docs.llamaindex.ai/en/stable/optimizing/evaluation/component_wise_evaluation/), conducting sensitivity tests can be beneficial. These tests enable you to identify the most problematic components or data points, allowing you to focus on testing and improving them individually. This approach enhances the overall robustness and effectiveness of your LLM application.
+
+### 6.1. Test Data
+Because developers don’t quite know outputs may be directly related to inputs, they need to define an evaluation dataset that’s reflective of their production use cases, and evaluate their system over this dataset using a set of evaluation metrics.
+
+Having a realistic test data is one of the hardest parts of a RAG system. There are solutions that let you easily generate questions that could be answered by the text. This is very useful specially for questions that have clear answers in individual chunks of text. Nevertheless, that is not usually the case in real world scenarios, and in such cases your system may not do a good job answering more meta-level questions or queries that require a high level of reasoning, handle complex dn nuanced queries with a complex interconnected source nodes.
+
+Where can we get data for evaluation purposes?
+- **Real World Data:** Ideally, the test data should come from the target users of our RAG system, for example, collected through an early access release. It is important to work closely with the target end users of the system being developed to ensure a clear understanding of the types of questions and inputs they would have. Based on this data, create a good dataset for evaluation purposes that closely resembles what may happen once the solution is deployed.
+- **Public Datasets:** When it's not possible to collect data from target users, or if we want to evaluate the RAG before releasing it, we can use one of the LLama Datasets for that purpose. However, this evaluation will not fully represent the production environment our RAG will operate in. [LlamaIndex Datasets](https://www.llamaindex.ai/blog/introducing-llama-datasets-aadb9994ad9e) are a set of community-contributed datasets that enable users to easily benchmark their RAG pipelines for various use cases. Each dataset comprises both question-answer pairs and source context.
+
+### 6.2. Performance Metrics
+LlamaIndex offers a wide range of modules to evaluate both Retrieval and Responses, accessible [here](https://docs.llamaindex.ai/en/stable/module_guides/evaluating/modules/). 
+
+#### 6.2.1. Response Evaluation
+Let's briefly compare some of the options for Response evaluation:
+
+- [**Faithfulness:**](https://ts.llamaindex.ai/modules/evaluation/modules/faithfulness) This metric assesses whether the response matches the retrieved context. It measures if the generated answer is faithful to the retrieved contexts, indicating whether it was potentially hallucinated. Scores range between 0 and 1, where 1 indicates perfect alignment with the context.
+- [**Answer Relevancy:**](https://docs.llamaindex.ai/en/stable/api_reference/evaluation/answer_relevancy/) This evaluates whether the response matches or is relevant to the query. It measures if the response actually answers the query. Scores range between 0 and 1, with 1 indicating high relevance.
+- [**Context Relevancy:**](https://docs.llamaindex.ai/en/stable/api_reference/evaluation/context_relevancy/) This metric determines whether the retrieved context is relevant to the query. Similar to Answer Relevancy, it assesses if the retrieved context is pertinent to the query, either generally or for specific source nodes.
+- [**Correctness:**](https://docs.llamaindex.ai/en/stable/api_reference/evaluation/correctness/) This assesses whether the answer matches the reference answer. It evaluates the relevance and correctness of a generated answer against a reference answer, providing a score between 0 and 5, where 5 indicates correctness.
+- [**Semantic Similarity:**](https://docs.llamaindex.ai/en/stable/examples/evaluation/semantic_similarity_eval/) This metric gauges whether the predicted answer is semantically similar to the reference answer (requires labels).
+- [**Guideline Adherence:**](https://docs.llamaindex.ai/en/stable/examples/evaluation/guideline_eval/) It evaluates whether the predicted answer adheres to specific user guidelines.
+- [**Context Recall:**](https://docs.ragas.io/en/stable/concepts/metrics/context_recall.html) This measures how well the retrieved context aligns with the annotated answer, treated as the ground truth.
+- [**Context Precision:**](https://docs.ragas.io/en/stable/concepts/metrics/context_precision.html) It assesses whether all relevant items present in the contexts are ranked higher. Ideally, all relevant chunks should appear at the top ranks, with scores ranging between 0 and 1, higher scores indicating better precision.
+- [**Metrics Ensembling:**] Use an ensemble of weaker signals to predict the output of a more expensive evaluation methods with the objective of avoiding expensive evaluations related to LLM calls.
+
+#### 6.2.2. Retrieval Evaluation
+[**Retrieval Evaluation**](https://docs.llamaindex.ai/en/stable/examples/evaluation/retrieval/retriever_eval/) addresses the question of whether the retrieved sources are relevant to the query. It compares what was retrieved for the query to a set of source nodes that were expected to be retrieved. Given a dataset of questions and ground-truth rankings, for any given question, the quality of retrieved results is compared to the ground-truth context. Retrievers can be evaluated using ranking metrics such as:
+- **Hit Rate:** This metric evaluates how often the system provides the correct answer within the top few guesses. It involves determining the fraction of queries where the correct answer is found within the top-k retrieved documents.
+- [**Mean Reciprocal Rank (MRR):**](https://en.wikipedia.org/wiki/Mean_reciprocal_rank) MRR is a measure for evaluating any process that produces a list of possible responses to a sample of queries, ordered by the probability of correctness. It assesses the rank of the highest-placed relevant document for each query and calculates the average of the reciprocals of these ranks across all queries.
+- [**Precision:**](https://en.wikipedia.org/wiki/Precision_and_recall) Precision measures the fraction of the retrieved documents that are relevant to the query.
+- [**Recall:**](https://en.wikipedia.org/wiki/Precision_and_recall) Recall measures the fraction of the relevant documents that were retrieved by the system.
+
+
+#### 6.2.3. LlamaIndex Integrations
+LlamaIndex offers seamless integration with various monitoring and evaluation tools and frameworks:
+
+- [**UpTrain:**](https://docs.llamaindex.ai/en/stable/examples/evaluation/UpTrain/) This open-source unified platform provides grades for over 20 preconfigured evaluations, covering language, code, and embedding use cases. It also performs root cause analysis on failure cases and offers insights on how to resolve them. You can find the UpTrain GitHub repository [here](https://github.com/uptrain-ai/uptrain).
+- [**Tonic Validate:**](https://docs.llamaindex.ai/en/stable/examples/evaluation/TonicValidateEvaluators/) Tonic Validate includes an open-source SDK and a web UI. The SDK comprises all the necessary tools for evaluating your RAG system, while the web UI serves as a visualization layer on top of the SDK, providing a better understanding of your system's performance beyond raw numbers.
+- [**DeepEval:**](https://docs.llamaindex.ai/en/stable/examples/evaluation/Deepeval/) This open-source LLM evaluation framework, available on [GitHub](https://github.com/confident-ai/deepeval), incorporates the latest research to assess LLM outputs. It includes metrics such as G-Eval, Summarization, Answer Relevancy, Faithfulness, Contextual Recall, Contextual Precision, RAGAS, Hallucination, Toxicity, and Bias.
+- [**Ragas:**](https://docs.ragas.io/en/stable/index.html#) Ragas facilitates the continuous improvement of LLM and RAG applications through Metrics-Driven Development (MDD). This approach relies on data to make informed decisions, continuously monitoring essential metrics over time to gain valuable insights into application performance.
+
+
+### 6.3. Cost Analysis
+While comprehensive documentation on this topic seems to be currently unavailable, it's crucial to address the cost considerations associated with a RAG system. Essentially, the cost of a RAG system can be broken down into the following components:
+
+- **LLM Calls:** Each interaction with an LLM incurs a certain cost. This cost varies based on factors such as the specific LLM used, the data structure employed, and the parameters utilized during indexing, querying and evaluation.
+- **Vector Store:** Whether utilizing a cloud-based or self-hosted vector store, there are costs associated with usage or resources. These costs can vary depending on factors such as storage capacity and data transfer.
+- **Opportunity Cost:** This aspect is often overlooked but holds significant importance. Every decision made during the design and implementation of your system represents a trade-off, resulting in a potential loss of gains from alternative choices not pursued. Considering the opportunity cost allows for adjustments to be made along the way, ensuring that resources—whether monetary, labor-related, or computational—are utilized as efficiently as possible.
+
+## Conclusion
+The design, development, and implementation of RAG systems pose significant challenges, requiring careful consideration of vast interconnected components. Each component plays a crucial role in determining the system's overall functionality, effectiveness, and efficiency. However, the complexity of these systems is compounded by the various components involved in data management, retrieval, augmentation, and generation.
+
+Therefore, it is crucial to reliably evaluate both the end-to-end solution and each critical component individually. This evaluation process allows for the identification of strengths, weaknesses, and areas for improvement within the system. By assessing the impact of changes on factors such as usefulness, accuracy, performance, and cost, developers can make informed decisions to iteratively enhance the overall quality and impact of the system.

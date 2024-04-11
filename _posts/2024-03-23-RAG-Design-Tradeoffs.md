@@ -27,9 +27,9 @@ The primary goal at this stage is to retrieve and convert the data into a vector
 
 ### 1.1. Loading
 
-Defining the data ingestion process is critical, considering the specific requirements of each use case. LlamaIndex offers a [wide set of utilities through LlamaHub](https://llamahub.ai/?tab=readers), facilitating the easy ingestion of data for search and retrieval by a LLM.
+Defining the data ingestion process is critical and must consider the specific requirements of each use case. LlamaIndex offers a [wide set of utilities through LlamaHub](https://llamahub.ai/?tab=readers), facilitating the easy ingestion of data for search and retrieval by a LLM.
 
-However, it's essential to balance the trade-offs between performance and compatibility among these utilities. For example, utilizing [LLamaParse](https://docs.llamaindex.ai/en/stable/module_guides/loading/connector/llama_parse/) for efficient parsing and representation of files can notably improve retrieval speed and context augmentation. Nevertheless, LLamaParse currently supports only PDF files, underscoring the importance of considering the data format right from the beginning of the design process.
+However, it's essential to balance the trade-offs between performance and compatibility among all utilities. For example, utilizing [LLamaParse](https://docs.llamaindex.ai/en/stable/module_guides/loading/connector/llama_parse/) for efficient parsing and representation of files can notably improve retrieval speed and context augmentation. Nevertheless, LLamaParse currently supports only PDF files, underscoring the importance of considering the data format right from the beginning of the design process.
 
 ### 1.2. Processing
 Indexing new data can occur in either batch mode or streaming mode. The choice between these modes significantly impacts how quickly new data becomes available to the RAG system.
@@ -39,7 +39,7 @@ Indexing new data can occur in either batch mode or streaming mode. The choice b
 - **Streaming:** This mode continually indexes fresh data as soon as it becomes available. It is crucial for scenarios where the chatbot requires the most up-to-date information. Streaming mode enables organizations to derive real-time insights and promptly act on incoming data, making it indispensable for time-sensitive applications.
 
 ### 1.3. Transforming
-Once the data is loaded, the next step is to transform it. These transformations involve tasks like chunking, metadata extraction, and embedding, all of which are crucial for optimizing performance, cost, and compatibility.
+Once the data is loaded and processed, the next step is to transform it. These transformations involve tasks like chunking, metadata extraction, and embedding, all of which are crucial for optimizing performance, cost, and compatibility.
 
 #### 1.3.1. Chunk size
 
@@ -60,12 +60,14 @@ Is there a method to empirically determine the optimal chunk size? The [LlamaInd
 - **Relevancy:** Determine if the response effectively answers the query and if it aligns with the source nodes.
 - **Response Generation Time:** Larger chunk sizes increase the volume of information processed by the LLM to generate an answer, slowing down the system and affecting its responsiveness.
 
+Evaluation processes and metrics will be covered in more detail in the **Evaluation** section of this post.
+
 #### 1.3.2. Embedding
 Embedding models accept text as input and generate a vector to capture the text's semantics. This vector representation enables similarity search by mapping both external data and user queries onto the same space. This mathematical relationship facilitates semantic search, enabling users to input a query and locate documents closely related to its meaning.
 
 When selecting an indexing model, it's crucial to weigh trade-offs between performance, cost, compatibility, and privacy:
 - **Quality vs Cost:** The chosen indexing model affects the quality of stored embeddings and the relevance of retrieved contexts. Proprietary and larger models typically offer better performance but may come with higher costs.
-- **Speed:** Slow indexing models can impact the response time, affecting user experience. Speed is critical, as indexing occurs not only during embedding of new data but also at synthesis time when generating responses.
+- **Speed:** Slow indexing models can impact the response time, affecting user experience. Speed is critical, as indexing occurs not only during embedding of new data but also during the embedding of a user query.
 - **Compatibility and Scalability:** Changing the indexing model requires re-indexing all data, which can be resource-intensive, especially for large datasets. Thus, it's essential to choose a model that balances current needs with future scalability and efficiency.
 - **Privacy:** Data privacy concerns, especially in sensitive domains like finance and healthcare, may influence the choice of embedding services.
 - **Embedding Types:** Various embedding types address unique challenges and requirements in different domains. Understanding your use case helps in selecting the appropriate embedding type, whether dense embeddings for capturing semantic meaning or sparse embeddings for specific information. Additionally, multi-vector embeddings or variable dimension embeddings offer innovative approaches to address specific needs.

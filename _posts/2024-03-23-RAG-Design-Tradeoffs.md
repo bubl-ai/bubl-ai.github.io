@@ -62,7 +62,14 @@ Is there a method to empirically determine the optimal chunk size? The [LlamaInd
 
 Evaluation processes and metrics will be covered in more detail in the **Evaluation** section of this post.
 
-#### 1.3.2. Embedding
+#### 1.3.2. Metadata
+Metadata plays a crucial role in enhancing the context of each chunk within a system. By injecting metadata into chunks, developers can provide additional information that aids in the retrieval process. Examples of metadata include page numbers, titles, summaries of chunks and adjacent chunks, as well as questions that can be answered based on the content.
+
+In many ways, the use of metadata during the retrieval of relevant context can be likened to the utilization of the WHERE clause in a SQL statement. Just as the WHERE clause filters and selects specific data from a database table, metadata helps refine and narrow down the search space, making the retrieval process more efficient and accurate.
+
+Moreover, metadata seamlessly integrates with Vector Databases, enriching the embeddings used in the system. This integration enhances the representation of data and improves the effectiveness of retrieval algorithms. In the subsequent sections, we will delve deeper into the utilization of metadata and its impact on system performance.
+
+#### 1.3.3. Embedding
 Embedding models accept text as input and generate a vector to capture the text's semantics. This vector representation enables similarity search by mapping both external data and user queries onto the same space. This mathematical relationship facilitates semantic search, enabling users to input a query and locate documents closely related to its meaning.
 
 When selecting an indexing model, it's crucial to weigh trade-offs between performance, cost, compatibility, and privacy:

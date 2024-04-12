@@ -168,7 +168,7 @@ Please refer to [this LlamaIndex example](https://docs.llamaindex.ai/en/stable/e
 ### 4.2. Prompt Augmentation
 The system prompt is the message added to the context and query sent to the LLM. The precise wording of this prompt is crucial for RAG performance. In a general sense, you can pre-program your system to behave as desired. For example, explicitly mentioning that only information from the provided context should be used, not general knowledge. Additionally, it can also serve as a template for how the response should appear.
 
-There are various fascinating techniques for prompt engineering. You can find a well-described list of advanced prompt engineering techniques [here](https://www.promptingguide.ai/techniques/tot). Below are some examples:
+There are various fascinating techniques for prompt engineering. You can find a well-described list of advanced prompt engineering techniques [here](https://www.promptingguide.ai/techniques). Below are some examples:
 
 - **Few-Shot:** Support the model with a few input-output examples to enable in-context learning, steering the model to better performance.
 - **Chain-of-Thought:** Structuring the input prompt to mimic human reasoning, aiding LLMs in tasks requiring logic, calculation, and decision-making.

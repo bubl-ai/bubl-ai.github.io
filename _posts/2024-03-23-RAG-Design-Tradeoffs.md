@@ -133,12 +133,12 @@ The effectiveness of a RAG system depends entirely on the search quality of the 
 
 Next, we will discuss various retrieval strategies available, covering their advantages and disadvantages. It's worth noting that regardless of the chosen retrieval strategy, it's crucial to consider how many of the retrieved documents will be utilized. This can be achieved by selecting the top-k closest chunks or by establishing a similarity cutoff. 
 
-### 3.1. Retrieval Strategy
+### 3.1. Search
 
 #### 3.1.1. Keyword Search
 Keyword-based retrieval operates by matching precise words or phrases from a query with those found in documents. This method employs sparse embeddings, also referred to as sparse vector search, where vectors are primarily composed of zero values with only a handful of non-zero values.
 
-Sparse vectors excel in domains and scenarios abundant with rare keywords or specialized terms. This is because they represent each dimension as a word or subword, simplifying the interpretation of document rankings. 
+Sparse vectors excel in domains and scenarios abundant with rare keywords or specialized terms. This is because they represent each dimension as a word, simplifying the interpretation of document rankings. 
 
 While this method is straightforward and fast, it has its limitations. It can frequently yield low-quality, irrelevant results as it struggles to handle semantic similarity, which can pose challenges with misspellings, synonyms, or polysemy. Additionally, it disregards the context or meaning of words, potentially leading to irrelevant outcomes.
 
@@ -153,6 +153,12 @@ Another drawback of this approach is latency, which refers to the time taken to 
 What if we could leverage the strengths of both Keyword and Semantic Searches simultaneously? Hybrid search offers a solution by combining results from semantic search with those from keyword search. This approach is particularly useful for scenarios where we aim to incorporate semantic search capabilities while still requiring exact phrase matching for specific terms, such as product or patient names.
 
 The process to implement an hybrid search is simple. Keyword search and vector search typically yield separate sets of results, usually in the form of sorted lists based on calculated relevance. To generate a hybrid search, these calculated scores are weighted using a parameter *alpha*, which determines the balance between keyword-based and semantic search. Some mixing methods include Reciprocal Ranked Fusion, [Relative Score Fusion](https://weaviate.io/blog/weaviate-1-20-release), and [Distribution-Based Score Fusion](https://medium.com/plain-simple-software/distribution-based-score-fusion-dbsf-a-new-approach-to-vector-search-ranking-f87c37488b18).
+
+### 3.2. Advanced Retrieval Strategies
+There are a variety of [advanced strategies](https://docs.llamaindex.ai/en/stable/optimizing/advanced_retrieval/advanced_retrieval/) available in LlamaIndex to improve the information retrieval.
+- [**Re-ranking:**](https://pub.towardsai.net/advanced-rag-04-re-ranking-85f6ae8170b1) This strategy involves the reordering of retrieved documents based on their relevance to the query. Utilizing another model, such as another LLM, both the query and document are fed into the model, which then produces a single score indicating the document's relevance to the given query.
+- [**Recursive:**](https://docs.llamaindex.ai/en/stable/examples/query_engine/pdf_tables/recursive_retriever/) This approach not only retrieves the most directly relevant nodes but also explores node relationships by applying further queries to the document. If there are references to other information within a chunk that may helpful in answering the query, it retrieves that additional information. For instance, if a chunk contains a summary about a table and also includes the command to load it, both the summary and the queried table would be retrieved.
+- [**Small-to-Big:**](https://towardsdatascience.com/advanced-rag-01-small-to-big-retrieval-172181b396d4) A simple approach is to embed a big text for retrieval, if retrieved this same text is used for synthesis. This often leads to suboptimal results due to filler text obscuring the semantic representation, a phenomenon known as "lost in the middle." The Small-to-Big retrieval strategy addresses this by using smaller text chunks (can be sentences) during retrieval and then providing the larger text chunk to which the retrieved text belongs to the LLM for synthesis. This helps avoid "lost in the middle" scenarios, potentially improving retrieval performance significantly.
 
 ## 4. Augmentation
 When discussing augmentation, it's important to differentiate between two types: Query and Prompt Augmentation. While there may be significant overlap between these two, and some methodologies described below may be applicable to both, it's crucial to emphasize that augmentation can occur at different stages of the pipeline, which must be considered when designing RAG systems.

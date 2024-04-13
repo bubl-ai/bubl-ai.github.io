@@ -14,7 +14,7 @@ For a deeper understanding of RAG systems and their components, I recommend read
 RAG systems can be decomposed mainly in the next major components:
 
 1. Loading, Processing and Transforming
-2. Data Indexing and Storage
+2. Data Storage and Indexing
 3. Retrieval
 4. Augmentation
 5. Generation
@@ -79,16 +79,32 @@ When selecting an indexing model, it's crucial to weigh trade-offs between perfo
 - **Privacy:** Data privacy concerns, especially in sensitive domains like finance and healthcare, may influence the choice of embedding services.
 - **Embedding Types:** Various embedding types address unique challenges and requirements in different domains. Understanding your use case helps in selecting the appropriate embedding type, whether dense embeddings for capturing semantic meaning or sparse embeddings for specific information. Additionally, multi-vector embeddings or variable dimension embeddings offer innovative approaches to address specific needs.
 
-## 2. Data Indexing and Storage
+## 2. Data Storage and Indexing
 After embedding our input data, the next step is to index and store it in a database that allows for efficient querying to retrieve the closest matching database records. This ensures that the data is readily accessible when needed.
 
-### 2.1. Indexing
+### 2.1. Vector Databases
+In a [previous post](https://bubl-ai.com/posts/Understanding-Vector-Databases/), we broadly covered what Vector Databases are. In essence, Vector Databases are optimized solutions for storing vector representations and conducting efficient searches across them, ideal for production-ready RAG systems. A comparison of different Vector Databases can be found [here](https://www.vecdbs.com/).
 
-#### 2.1.1. Document Hierarchies
-RAG systems may face challenges with limited retrieval accuracy particularly when dealing with an extensive set of indistinguishable documents. One effective solution is to implement a document hierarchy, which organizes data in a hierarchical manner to enhance information retrieval. This hierarchy associates chunks with nodes and organizes nodes in parent-child relationships.
+When selecting your database, consider the following:
+- **Integration:** Ensure compatibility with your development framework.
+- **Managed vs Self-Hosted:** Decide based on your team's capabilities and needs. Consider if you have a specialized engineering team for self-hosting and weigh the opportunity cost. Alternatively, managed databases might be a suitable solution.
+- **Pricing:** Options range from cloud-based plans where you pay according to your usage, to self-hosted solutions where you pay only for the resources utilized.
+- **Security and Privacy:** Check if the Vector Database complies with SOC, GDPR, HIPAA or any other regulations that applies to you.
+- **Performance and Processing:** Assess your app's latency requirements, whether it serves online streaming of data or operates in batch offline mode.
+- **Search Support:** Consider if the database offers features like Multi-modal, Full Text Search, Similarity Search, and Hybrid Search.
+- **Reliability:** Review uptime commitments in Service Level Agreements.
+- **Embedding Compression:** When dealing with large datasets, compression becomes important. Some provide built-in compression, reducing storage usage.
+- **Developer Experience:** Evaluate the day-to-day developer experience using the database. Consider factors like open-source availability, API documentation, customization options, error handling, and technical support.
+- **Auto-Scaling:** Determine if the database ensures constant availability by adapting to traffic and if scaling up as data size grows is straightforward.
+
+### 2.2. Indexing
+[This post](https://blog.gopenai.com/different-types-of-indexes-in-llamaindex-to-improve-your-rag-system-0fb13132cab6) offers a good description of the different types of indexes that are offered in LlamaIndex. LlamaIndex Indexing components guide is also available [here](https://docs.llamaindex.ai/en/stable/module_guides/indexing/index_guide/).
+
+#### 2.2.1. Tree Index
+RAG systems may face challenges with limited retrieval accuracy particularly when dealing with an extensive set of indistinguishable documents. One effective solution is to implement a tree index, which organizes data in a hierarchical manner to enhance information retrieval, and where each node in the tree represents a summary of the documents that are its children.. This hierarchy associates chunks with nodes and organizes nodes in parent-child relationships. 
 
 **Pros:**
-- Improves efficiency and facilitates faster and more reliable data retrieval and processing.
+- Improves efficiency and facilitates faster, scalable and more reliable data retrieval and processing. 
 - Allows for a nuanced understanding of context, distinguishing between similar sections with subtle differences.
 - Enhances retrieval reliability and reduces hallucination issues related to chunk retrieval.
 
@@ -96,7 +112,7 @@ RAG systems may face challenges with limited retrieval accuracy particularly whe
 - Requires domain-specific knowledge to build relevant hierarchy structures.
 - May involve complexity in creating and maintaining the hierarchy over time.
 
-#### 2.1.2. Knowledge Graphs
+#### 2.2.2. Knowledge Graphs
 Graph RAG is an approach to retrieve information from a Knowledge Graph for a given task and serves as a compelling alternative to the traditional "split and embedding" method discussed earlier. In this approach, data is represented as a network consisting of various types of entities (nodes) and their relationships (edges).
 
 Similar to document hierarchies, a Knowledge Graph can consistently and accurately retrieve related rules and concepts, significantly reducing hallucinations. Unlike document hierarchies, Knowledge Graphs map relationships using natural language, enabling even non-technical users to build and modify rules and relationships to manage their enterprise RAG systems.
@@ -111,21 +127,6 @@ LlamaIndex offers a range of components that simplify the creation and utilizati
 - `KnowledgeGraphRAGRetriever`: This component conducts a search on entities relevant to the question, retrieves the subgraph of those entities, and constructs context based on the subgraph.
 
 You can find an example of how to create and query a Knowledge Graph with LlamaIndex [here](https://docs.llamaindex.ai/en/stable/examples/query_engine/knowledge_graph_query_engine/). Additionally, [this video](https://www.youtube.com/watch?v=bPoNCkjDmco) provides valuable insights by illustrating a real example, helping to understand the differentiation of a Graph RAG from other options and its benefits.
-
-### 2.2. Vector Databases
-In a [previous post](https://bubl-ai.com/posts/Understanding-Vector-Databases/), we broadly covered what Vector Databases are. In essence, Vector Databases are optimized solutions for storing vector representations and conducting efficient searches across them, ideal for production-ready RAG systems. A comparison of different Vector Databases can be found [here](https://www.vecdbs.com/).
-
-When selecting your database, consider the following:
-- **Integration:** Ensure compatibility with your development framework.
-- **Managed vs Self-Hosted:** Decide based on your team's capabilities and needs. Consider if you have a specialized engineering team for self-hosting and weigh the opportunity cost. Alternatively, managed databases might be a suitable solution.
-- **Pricing:** Options range from cloud-based plans where you pay according to your usage, to self-hosted solutions where you pay only for the resources utilized.
-- **Security and Privacy:** Check if the Vector Database complies with SOC, GDPR, HIPAA or any other regulations that applies to you.
-- **Performance and Processing:** Assess your app's latency requirements, whether it serves online streaming of data or operates in batch offline mode.
-- **Search Support:** Consider if the database offers features like Multi-modal, Full Text Search, Similarity Search, and Hybrid Search.
-- **Reliability:** Review uptime commitments in Service Level Agreements.
-- **Embedding Compression:** When dealing with large datasets, compression becomes important. Some provide built-in compression, reducing storage usage.
-- **Developer Experience:** Evaluate the day-to-day developer experience using the database. Consider factors like open-source availability, API documentation, customization options, error handling, and technical support.
-- **Auto-Scaling:** Determine if the database ensures constant availability by adapting to traffic and if scaling up as data size grows is straightforward.
 
 ## 3. Retrieval
 Retrieval involves identifying pieces of stored data that are relevant to the user's query. At its core, it consists on embedding the query using the same model employed for indexing and then comparing the embedded query with the indexed data. Links to LLamaIndex [Query Engine](https://docs.llamaindex.ai/en/stable/module_guides/deploying/query_engine/) and [Chat Engine](https://docs.llamaindex.ai/en/stable/module_guides/deploying/chat_engines/).

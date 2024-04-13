@@ -100,8 +100,18 @@ When selecting your database, consider the following:
 ### 2.2. Indexing
 [This post](https://blog.gopenai.com/different-types-of-indexes-in-llamaindex-to-improve-your-rag-system-0fb13132cab6) offers a good description of the different types of indexes that are offered in LlamaIndex. LlamaIndex Indexing components guide is also available [here](https://docs.llamaindex.ai/en/stable/module_guides/indexing/index_guide/).
 
+The most basic form of indexing is the Summary Index, which stores all nodes as a sequential chain. When querying, the index scans through this list of nodes and, using an embedding-based query, retrieves the top-k neighbors.
+
+Next, we'll explore other types of indexes.
+
 #### 2.2.1. Tree Index
-RAG systems may face challenges with limited retrieval accuracy particularly when dealing with an extensive set of indistinguishable documents. One effective solution is to implement a tree index, which organizes data in a hierarchical manner to enhance information retrieval, and where each node in the tree represents a summary of the documents that are its children.. This hierarchy associates chunks with nodes and organizes nodes in parent-child relationships. 
+RAG systems might encounter difficulties with limited retrieval accuracy, especially when handling a large set of indistinguishable documents. One effective solution is to deploy a tree index, which organizes data hierarchically to improve information retrieval. In this structure, each node in the tree summarizes the documents that are its children. This hierarchical arrangement establishes associations between chunks and nodes, organizing nodes in parent-child relationships.
+
+During query time, the process involves initial query processing to identify keywords relevant to the query. Subsequently, the tree is traversed from root nodes to leaf nodes:
+1. The index checks if the keywords in the query are present in the node’s summary.
+2. If present, the index descends into the node’s children.
+3. If not present, the index moves on to the next node.
+The index determines how many child nodes it can select given a parent node based on chosen parameters.
 
 **Pros:**
 - Improves efficiency and facilitates faster, scalable and more reliable data retrieval and processing. 

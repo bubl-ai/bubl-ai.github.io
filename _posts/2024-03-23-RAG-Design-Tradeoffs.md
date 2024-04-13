@@ -98,13 +98,12 @@ When selecting your database, consider the following:
 - **Auto-Scaling:** Determine if the database ensures constant availability by adapting to traffic and if scaling up as data size grows is straightforward.
 
 ### 2.2. Indexing
-[This post](https://blog.gopenai.com/different-types-of-indexes-in-llamaindex-to-improve-your-rag-system-0fb13132cab6) offers a good description of the different types of indexes that are offered in LlamaIndex. LlamaIndex Indexing components guide is also available [here](https://docs.llamaindex.ai/en/stable/module_guides/indexing/index_guide/).
+[This LlamaIndex Indexing components guide](https://docs.llamaindex.ai/en/stable/module_guides/indexing/index_guide/) offers a good description of the different types of indexes that are offered in LlamaIndex.
 
-The most basic form of indexing is the Summary Index, which stores all nodes as a sequential chain. When querying, the index scans through this list of nodes and, using an embedding-based query, retrieves the top-k neighbors.
+#### 2.2.1. Summary Index
+The most basic form of indexing is the Summary Index, which stores all nodes as a sequential chain. When querying, the index scans through this list of nodes and, using an embedding-based query or a keyword filter, retrieves the top-k neighbors.
 
-Next, we'll explore other types of indexes.
-
-#### 2.2.1. Tree Index
+#### 2.2.2. Tree Index
 RAG systems might encounter difficulties with limited retrieval accuracy, especially when handling a large set of indistinguishable documents. One effective solution is to deploy a tree index, which organizes data hierarchically to improve information retrieval. In this structure, each node in the tree summarizes the documents that are its children. This hierarchical arrangement establishes associations between chunks and nodes, organizing nodes in parent-child relationships.
 
 During query time, the process involves initial query processing to identify keywords relevant to the query. Subsequently, the tree is traversed from root nodes to leaf nodes:
@@ -122,7 +121,17 @@ The index determines how many child nodes it can select given a parent node base
 - Requires domain-specific knowledge to build relevant hierarchy structures.
 - May involve complexity in creating and maintaining the hierarchy over time.
 
-#### 2.2.2. Knowledge Graphs
+#### 2.2.3. Vector Store Index
+The vector store index is the most common index type. As discussed in Section 2.1., each Node and its corresponding embedding are stored in a Vector Store as vectors. These vectors represent the meaning of the text and facilitate finding relevant documents based on the user’s query.
+
+During query time, the process begins with the query being processed by the same embedding model to generate a vector store. Subsequently, the vector of the query is compared to all the documents present in the index, and the top-k most similar nodes are retrieved.
+
+#### 2.2.4. Keyword Table
+The keyword table index operates by extracting keywords from each Node and constructing a mapping from each keyword to the corresponding Nodes containing that keyword.
+
+During query time, relevant keywords are extracted from the query, which are then matched with pre-extracted Node keywords to fetch the corresponding Nodes. Subsequently, the extracted Nodes are used for synthesis.
+
+#### 2.2.5. Knowledge Graphs
 Graph RAG is an approach to retrieve information from a Knowledge Graph for a given task and serves as a compelling alternative to the traditional "split and embedding" method discussed earlier. In this approach, data is represented as a network consisting of various types of entities (nodes) and their relationships (edges).
 
 Similar to document hierarchies, a Knowledge Graph can consistently and accurately retrieve related rules and concepts, significantly reducing hallucinations. Unlike document hierarchies, Knowledge Graphs map relationships using natural language, enabling even non-technical users to build and modify rules and relationships to manage their enterprise RAG systems.

@@ -1,6 +1,6 @@
 ---
 title: RAG Challenges and Solutions
-date: 2024-03-08 12:00:00 -0
+date: 2024-04-4 12:00:00 -0
 categories: [RAG, Challenges]
 tags: []
 ---

@@ -1,6 +1,6 @@
 ---
 title: Understanding Vector Databases
-date: 2024-02-24 12:00:00 -0
+date: 2024-03-14 12:00:00 -0
 categories: [RAG, Database]
 tags: [RAG, Vector-Database]
 ---

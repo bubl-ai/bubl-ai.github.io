@@ -1,6 +1,6 @@
 ---
 title: Simple Dockerfile for Dev Purposes
-date: 2024-02-12 12:00:00 -0
+date: 2024-02-19 12:00:00 -0
 categories: [Repo, Setup]
 ---
 # Use of Docker in AI

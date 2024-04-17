@@ -1,6 +1,6 @@
 ---
 title: Raspberry Pi Setup
-date: 2024-02-9 12:00:00 -0
+date: 2024-02-16 12:00:00 -0
 categories: [Raspberry Pi, Setup]
 ---
 

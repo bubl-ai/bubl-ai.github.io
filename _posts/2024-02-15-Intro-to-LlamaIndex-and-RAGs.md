@@ -1,6 +1,6 @@
 ---
 title: Intro to RAG and LlamaIndex
-date: 2024-02-15 12:00:00 -0
+date: 2024-03-1 12:00:00 -0
 categories: [LlamaIndex, Learning]
 tags: [RAG, LlamaIndex]
 ---

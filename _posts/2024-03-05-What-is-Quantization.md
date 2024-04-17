@@ -1,6 +1,6 @@
 ---
 title: What is Quantization?
-date: 2024-03-05 12:00:00 -0
+date: 2024-03-27 12:00:00 -0
 categories: [LLM, Quantization]
 tags: []
 ---

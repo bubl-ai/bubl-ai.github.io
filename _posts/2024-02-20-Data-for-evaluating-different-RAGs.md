@@ -1,6 +1,6 @@
 ---
 title: Data for Evaluating Different RAG Configurations
-date: 2024-02-20 12:00:00 -0
+date: 2024-03-5 12:00:00 -0
 categories: [LlamaIndex, Learning]
 tags: [RAG, LlamaIndex, Evaluation]
 ---

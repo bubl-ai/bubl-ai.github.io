@@ -196,6 +196,7 @@ Here is a list of different query transformations:
 - **Sub-query generation:** Divide the query into smaller, more detailed sub-queries based on the original query and pass them to different pipelines.
 - **ReAct Agent Tool Picking:** Identify the tool to pick and the query to execute on the tool based on the initial query.
 - **Hypothetical Document Embeddings:** Create a hypothetical document for an incoming query using an LLM, embed the document, and use it together with the original query to retrieve similar documents. This method assumes that the generated document will share some similarities with a good answer and may be closer in the embedding space than the query.
+- [**QueryFusionRetriever:**](https://plg.uwaterloo.ca/~gvcormac/cormacksigir09-rrf.pdf) This method offers an efficient way to re-rank retrieved nodes without excessive computation or dependence on external models. It generates similar queries to the user query, retrieves and re-ranks the top n nodes from each generated query using the Reciprocal Re-rank Fusion algorithm.
 
 Please refer to [this LlamaIndex example](https://docs.llamaindex.ai/en/stable/examples/query_transformations/query_transform_cookbook/), which provides more detailed information on different query transformation methods.It's crucial to be cautious when using these methods, as augmentation may be open-ended and could potentially mislead or misinterpret the context, leading to dangerous or unsafe generated outputs.
 

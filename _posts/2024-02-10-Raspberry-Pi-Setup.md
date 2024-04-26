@@ -9,7 +9,7 @@ categories: [Raspberry Pi, Setup]
 ## Why Start from Scratch?
 Starting from scratch is like starting a video game on easy mode – it's the best way to learn, have some fun, and maybe break a few things along the way - because let's be real, that's where the real learning happens!
 
-I recently got my hands on the shiny new RPi 5 and thought, "Why not turn this setup into a fun experience to share with all of you?" So here we are, diving into the setup needed to kickstart your AI projects on the Raspberry Pi.
+I recently got my hands on the shiny new RPi 5 and thought, "Why not turn this setup into a fun experience to share with all of you?" So here we are, diving into the setup needed to kickstart your AI projects on the RPi.
 
 ## What you will learn here:
 
@@ -17,6 +17,7 @@ I recently got my hands on the shiny new RPi 5 and thought, "Why not turn this s
 2. Install Docker
 3. Install VSCode and relevant extensions
 4. Connect to GitHub with SSH
+5. Increase swap in your Device
 
 
 ## 1. Connect to your RPi using SSH or VNC
@@ -88,6 +89,9 @@ Relevant Extensions to install:
 + Sign in to your GitHub account and go to Settings > Access > SSH and GPG > New SSH key. Paste the content of your key there.
 + Test your connection, `ssh -T git@github.com`
 + Now you can clone your repo, `git clone git@github.com:[username]/[repo_name][^fn-nth-5]
+
+## 5. Increase swap
+Working with VSCode and Docker together may be demanding for the RPi. While working on both I have found several problems where the VSCode window crashes and stops working. I found that a good solution to avoid is is by increasing the swap size. I am still testing this approach and I am not entirely aware of the full impact of doing this, so please do this with caution. [This page](https://pimylifeup.com/raspberry-pi-swap-file/) shows how to increase the swap in a few steps.
 
 ## References
 [^fn-nth-2]: https://stackoverflow.com/questions/66875411/

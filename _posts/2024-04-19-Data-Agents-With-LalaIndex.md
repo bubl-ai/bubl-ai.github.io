@@ -9,7 +9,10 @@ As discussed in previous posts, LlamaIndex offers a toolkit that enables the est
 
 This post was inspired by the tutorial series on Agents and Tools provided by LlamaIndex in their April 16, 2024, newsletter. Additionally, they have shared tutorial series videos available [here](https://www.youtube.com/watch?v=-AuHlVMyEA0).
 
-I've prepared a few examples based on those shared by LlamaIndex in their tutorial series, which are already accessible in our [bubl-ai GitHub repository](https://github.com/bubl-ai/llamaindex-project/tree/main/examples/data_agents). These examples offer valuable insights for anyone interested in gaining a deeper understanding of agent reasoning to develop simple applications.
+I've prepared a few examples based on those shared by LlamaIndex in their tutorial series, which are already accessible in our [bubl-ai GitHub repository](https://github.com/bubl-ai/llamaindex-project/tree/main). These examples offer valuable insights for anyone interested in gaining a deeper understanding of agent reasoning to develop simple applications:
+- [Code Generator Agent](https://github.com/bubl-ai/llamaindex-project/tree/main/examples/code_generator_agent)
+- [Intro to agents](https://github.com/bubl-ai/llamaindex-project/tree/main/examples/data_agents).
+
 
 ## What are Data Agents
 Data Agents expand upon the capabilities of traditional query engines by enabling continuous interaction with data sources, providing a more adaptable and responsive approach to data management. Their ability to intelligently execute tasks over data allows for autonomous searches, retrieval, and ingestion of new information, with the capability to adapt based on this data. Additionally, they can integrate with external service APIs and perform operations such as reading, modifying, and writing data.

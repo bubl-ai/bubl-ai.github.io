@@ -188,7 +188,7 @@ When discussing augmentation, it's important to differentiate between two types:
 - **Prompt Augmentation:** This occurs after retrieval and involves modifying the prompt that will be sent to the LLM to generate the final output. The main objective is to improve the generation of the final output with a given knowledge/context.
 
 ### 4.1. Query Augmentation
-Query augmentation addresses the issue of how a query is phrased and whether it is optimal for finding relevant data to support the answer. Techniques for query transformation significantly enhance RAG performance, especially when dealing with short and vague user queries.
+Query augmentation addresses the issue of how a query is phrased and whether it is optimal for finding relevant data to support the answer. Techniques for query transformation significantly enhance RAG performance and higher quality retrieved results, especially when dealing with short and vague user queries.
 
 Here is a list of different query transformations:
 - **Routing:** Retain the query but determine the relevant subset of pipelines that the query applies to.

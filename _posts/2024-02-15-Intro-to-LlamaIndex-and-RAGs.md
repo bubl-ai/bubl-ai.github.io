@@ -9,7 +9,7 @@ This post is my summarized interpretation of what I read in the [**LlamaIndex do
 
 ## What is LlamaIndex?
 
-LlamaIndex provides abstractions to make the ingestion, structuring, and access of data more straightforward, enabling seamless integration into Large Language Models (LLMs) for more accurate text generation.
+LlamaIndex provides abstractions to make the ingestion, structuring, and access of data more straightforward, enabling seamless integration into LLMs for more accurate text generation.
 
 While LLMs are trained on extensive datasets, they lack training on private or domain-specific data. Fine-tuning a LLM with your data is costly, making it challenging to keep the model up-to-date with the latest information. Additionally, it often lacks observability.[^footnote]
 

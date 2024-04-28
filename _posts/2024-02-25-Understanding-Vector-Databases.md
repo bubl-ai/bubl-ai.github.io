@@ -5,7 +5,7 @@ categories: [RAG, Database]
 tags: [RAG, Vector-Database]
 ---
 
-Large Language Models can become outdated due to infrequent updates, relying on training data that might be several years old. When seeking information not publicly available or absent from the specific model's training data, a solution is needed.
+LLMs can become outdated due to infrequent updates, relying on training data that might be several years old. When seeking information not publicly available or absent from the specific model's training data, a solution is needed.
 
 Vector Databases gain significance by allowing you to use your own data, regardless of size, to enhance these models and make them more pertinent to your inquiries. These databases are essential for managing unstructured and semi-structured data, offering capabilities like indexing, distance metrics, and similarity search, making them a crucial tool in the machine learning and AI landscape.
 
@@ -15,7 +15,7 @@ It's important to start by distinguishing between Vector Databases and Vector In
 ## What are Vector Databases?
 A Vector Database comprises data stored as mathematical representations, enabling AI models to retrieve past inputs through similarity metrics rather than exact matches, making it possible for a model to understand data contextually. In other words, Vector Databases empower AI models to make comparisons, recognize relationships, and understand context.
 
-One key advantage that positions Vector Databases as an optimal solution for Large Language Models (LLMs) is their optimization for efficiently storing and processing extensive amounts of vector dat, surpassing the capabilities of traditional databases.[^fn-nth-2]
+One key advantage that positions Vector Databases as an optimal solution for LLMs is their optimization for efficiently storing and processing extensive amounts of vector dat, surpassing the capabilities of traditional databases.[^fn-nth-2]
 
 ## How Vector Databases are used in RAG?
 

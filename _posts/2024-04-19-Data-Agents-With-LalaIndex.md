@@ -12,7 +12,7 @@ This post was inspired by the tutorial series on Agents and Tools provided by Ll
 I've prepared a few examples based on those shared by LlamaIndex in their tutorial series, which are already accessible in our [bubl-ai GitHub repository](https://github.com/bubl-ai/llamaindex-project/tree/main). These examples offer valuable insights for anyone interested in gaining a deeper understanding of Agent reasoning to develop simple applications:
 - [Intro to Agents](https://github.com/bubl-ai/llamaindex-project/tree/main/examples/data_agents)
 - [Code Generator Agent](https://github.com/bubl-ai/llamaindex-project/tree/main/examples/code_generator_agent)
-- Stock Analysis Agent
+- [Stock Analysis Agent with Shakespeare twist](https://github.com/bubl-ai/llamaindex-project/tree/main/examples/finance_agent)
 
 
 ## What are Data Agents

@@ -1,6 +1,6 @@
 ---
 title: Data Agents with LlamaIndex
-date: 2024-04-25 12:00:00 -0
+date: 2024-04-28 12:00:00 -0
 categories: [Agents, LlamaIndex]
 tags: []
 ---
@@ -9,7 +9,7 @@ As discussed in previous posts, LlamaIndex offers a toolkit that enables the est
 
 This post was inspired by the tutorial series on Agents and Tools provided by LlamaIndex in their April 16, 2024, newsletter. Additionally, they have shared tutorial series videos available [here](https://www.youtube.com/watch?v=-AuHlVMyEA0).
 
-I've prepared a few examples based on those shared by LlamaIndex in their tutorial series, which are already accessible in our [bubl-ai GitHub repository](https://github.com/bubl-ai/llamaindex-project/tree/main). These examples offer valuable insights for anyone interested in gaining a deeper understanding of Agent reasoning to develop simple applications:
+I've prepared a few examples based on those shared by LlamaIndex in their tutorial series and on their weekly newsletters. These examples cover what is discussed in this post, and offer valuable insights for anyone interested in gaining a deeper understanding of Data Agents to develop simple applications:
 - [Intro to Agents](https://github.com/bubl-ai/llamaindex-project/tree/main/examples/data_agents)
 - [Code Generator Agent](https://github.com/bubl-ai/llamaindex-project/tree/main/examples/code_generator_agent)
 - [Stock Analysis Agent with Shakespeare twist](https://github.com/bubl-ai/llamaindex-project/tree/main/examples/finance_agent)

@@ -7,7 +7,7 @@ tags: []
 
 Fine-tuning a model involves updating it with new data to enhance its performance. This includes generating better results, reducing hallucinations, including more data holistically, and lowering both latency and costs. Fine-tuning not only improves output quality but can also enhance how the system retrieves information.
 
-This post was inspired by the [LlamaIndex fine-tuning overview](https://docs.llamaindex.ai/en/stable/use_cases/fine_tuning/), I've prepared a [few examples](https://github.com/bubl-ai/llamaindex-project/tree/main/examples/fine-tuning) based on those shared by them. These examples cover what is discussed in this post, and offer valuable insights for anyone interested in gaining a deeper understanding on fine-tuning:
+This post was inspired by the [LlamaIndex fine-tuning overview](https://docs.llamaindex.ai/en/stable/use_cases/fine_tuning/), I've prepared a [few examples](https://github.com/bubl-ai/llamaindex-project/tree/main/examples/fine-tuning) based on those shared by them. The next examples cover everything that is discussed in this post, and offer valuable insights for anyone interested in gaining a deeper understanding on fine-tuning:
 - Embeddings
    - [Embedding with Sentence Transformer](https://github.com/bubl-ai/llamaindex-project/blob/main/examples/fine-tuning/fine-tune_embedding/01_intro_and_naive.ipynb)
    - [Embedding with FineTuneEngine](https://github.com/bubl-ai/llamaindex-project/blob/main/examples/fine-tuning/fine-tune_embedding/02_embedding.ipynb)

@@ -7,7 +7,7 @@ tags: []
 
 Tools like LlamaIndex have made it easier to create RAG systems. As of now, the main challenge isn't building them, making a basic RAG demo is quite simple. The real difficulty lies in crafting a system that is properly evaluated and that can be deployed at scale, is reliable, secure, and compatible with enterprise solutions.
 
-For a deeper understanding of RAG systems and their components, I recommend reading [this post by Michal Oleszak](https://towardsdatascience.com/designing-rags-dbb9a7c1d729). It provides a detailed overview and explores various design choices. For writing this post, I followed a similar structure and flow of ideas, but I am expanding and focusing more on the performance, cost, compatibility, and solutions trade-offs of each component, and using solely LlamaIndex solutions.
+For a different perspective on RAG systems and their components, I recommend reading [this post by Michal Oleszak](https://towardsdatascience.com/designing-rags-dbb9a7c1d729). It provides a detailed overview and explores various design choices. For writing this post, I followed a similar structure and flow of ideas, but I am expanding and focusing more on the performance, cost, compatibility, and solutions trade-offs of each component, and using solely LlamaIndex solutions.
 
 ## Main RAG components
 

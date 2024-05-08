@@ -56,7 +56,7 @@ Several factors should be taken into account when making chunking decisions:
 - **Cost and response time:** Smaller chunks require less processing, resulting in shorter response times. Additionally, considerations should extend to synthesis time and cost, which tend to increase with larger chunk sizes.
 
 Is there a method to empirically determine the optimal chunk size? The [LlamaIndex Response Evaluation](https://www.llamaindex.ai/blog/evaluating-the-ideal-chunk-size-for-a-rag-system-using-llamaindex-6207e5d3fec5) addresses this question. They emphasize that finding the best chunk size for a RAG system involves both intuition and empirical evidence. With this module, you can experiment with different sizes and base your decisions on concrete data, evaluating the efficiency and accuracy of your RAG system using the following criteria:
-- **Faithfulness:** Evaluate the absence of 'hallucinations' by comparing the query with the retrieved contexts. Measure whether the response from a query engine matches any source nodes.
+- **Faithfulness:** Evaluate the absence of 'hallucinations' by comparing the retrieved documents with the response.
 - **Relevancy:** Determine if the response effectively answers the query and if it aligns with the source nodes.
 - **Response Generation Time:** Larger chunk sizes increase the volume of information processed by the LLM to generate an answer, slowing down the system and affecting its responsiveness.
 

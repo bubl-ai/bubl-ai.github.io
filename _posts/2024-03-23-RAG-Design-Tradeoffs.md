@@ -117,7 +117,7 @@ The index determines how many child nodes it can select given a parent node base
 **Pros:**
 - Improves efficiency and facilitates faster, scalable and more reliable data retrieval and processing. 
 - Allows for a nuanced understanding of context, distinguishing between similar sections with subtle differences.
-- Enhances retrieval reliability and reduces hallucination issues related to chunk retrieval.
+- May enhance retrieval reliability and reduces hallucination issues related to chunk retrieval.
 
 **Cons:**
 - Requires domain-specific knowledge to build relevant hierarchy structures.
@@ -134,7 +134,7 @@ The keyword table index operates by extracting keywords from each Node and const
 During query time, relevant keywords are extracted from the query, which are then matched with pre-extracted Node keywords to fetch the corresponding Nodes. Subsequently, the extracted Nodes are used for synthesis.
 
 #### 2.2.5. Knowledge Graphs
-Graph RAG is an approach to retrieve information from a Knowledge Graph for a given task and serves as a compelling alternative to the traditional "split and embedding" method discussed earlier. In this approach, data is represented as a network consisting of various types of entities (nodes) and their relationships (edges).
+Graph RAG is an approach to retrieve information from a Knowledge Graph for a given task and serves as a compelling alternative to the split-embed method used in previous index types. In this approach, data is represented as a network consisting of various types of entities (nodes) and their relationships (edges).
 
 Similar to document hierarchies, a Knowledge Graph can consistently and accurately retrieve related rules and concepts, significantly reducing hallucinations. Unlike document hierarchies, Knowledge Graphs map relationships using natural language, enabling even non-technical users to build and modify rules and relationships to manage their enterprise RAG systems.
 
